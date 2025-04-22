@@ -31,7 +31,7 @@ export default function Hero() {
         </p>
         <Button
           variant="outline"
-          className="mt-7"
+          className="mt-7 cursor-pointer"
           onClick={() => window.open('./Hanish.pdf', '_blank')}
         >
           resume
