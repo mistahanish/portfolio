@@ -32,7 +32,7 @@ export default function Hero() {
         <Button
           variant="outline"
           className="mt-7"
-          onClick={() => window.open(`${import.meta.env.BASE_URL}Hanish.pdf`, "_blank")}
+          onClick={() => window.open('/Hanish.pdf', '_blank')}
         >
           resume
         </Button>
