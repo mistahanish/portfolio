@@ -59,7 +59,7 @@ function App() {
           </Card>
         </div>
         <div className="flex flex-row max-w-3/4 min-w-3/4 gap-4 mt-4">
-          <Card className="max-w-2xl p-6 flex justify-center items-center text-center">
+          <Card className="min-w-2xl p-6 flex justify-center items-center text-center">
             <p className="text-muted-foreground">
               A creative coder and gamer, passionate about designing efficient
               software that blends functionality with imagination 🎮. When I'm
@@ -67,7 +67,7 @@ function App() {
               strumming my guitar, or sketching ideas to fuel my projects 🎨.
             </p>
           </Card>
-          <Card className="max-w-2xl p-6 flex flex-col justify-center items-center text-center">
+          <Card className="min-w-30/100 p-6 flex flex-col justify-center items-center text-center">
             <img
               src={HanishImage}
               alt="Hanish"
