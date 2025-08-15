@@ -5,10 +5,10 @@ import Updates from "@/pages/Updates";
 
 
 const LINKS: LinkItem[] = [
-  { href: "/projects", label: "☾⋆⁺₊ projects ₊⁺⋆☽" },
-  { href: "/experience", label: "✦༓ experience ༓✦" },
-  { href: "/about", label: "⟅ about me ⟆" },
-  { href: "/gallery", label: "༺ gallery ༻" },
+  { href: "#/projects", label: "☾⋆⁺₊ projects ₊⁺⋆☽" },
+  { href: "#/experience", label: "✦༓ experience ༓✦" },
+  { href: "#/about", label: "⟅ about me ⟆" },
+  { href: "#/gallery", label: "༺ gallery ༻" },
   { href: "/Hanish.pdf", label: "『✣ resume ✣』" }, // in /public
 ];
 
