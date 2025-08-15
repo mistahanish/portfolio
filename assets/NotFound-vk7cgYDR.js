@@ -1,1 +1,0 @@
-import{j as e,L as n}from"./index-BuNqtnay.js";function t(){return e.jsxs("div",{children:[e.jsx("h1",{className:"text-2xl font-bold",children:"404"}),e.jsx("p",{className:"mt-2 opacity-80",children:"page not found."}),e.jsx(n,{to:"/",className:"mt-4 inline-block underline",children:"back home"})]})}export{t as default};
