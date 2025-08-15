@@ -1,0 +1,1 @@
+import{j as t}from"./index-DDcDn_Dl.js";function s(){return t.jsxs("div",{children:[t.jsx("h1",{className:"text-2xl font-bold tracking-wide",children:"gallery"}),t.jsx("p",{className:"mt-2 text-sm opacity-80",children:"coming soon."})]})}export{s as default};
