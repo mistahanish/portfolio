@@ -12,7 +12,7 @@ function Layout() {
           <Outlet />
         </section>
         <footer className="fixed bottom-3 left-1/2 -translate-x-1/2 text-xs opacity-70 font-mono">
-          © {new Date().getFullYear()} hanish vadlamudi
+          built with ❤️ by hanish vadlamudi © {new Date().getFullYear()}
         </footer>
       </main>
     </ThemeProvider>
