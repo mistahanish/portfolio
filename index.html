@@ -1574,7 +1574,7 @@
                         ${p.sub ? `<div class="mob-item__sub">${p.sub}</div>` : ''}
                         <div class="mob-item__desc">${p.desc}</div>
                         ${p.techs && p.techs.length ? `<div class="mob-item__techs">${p.techs.map(t => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join('')}</div>` : ''}
-                        ${p.link ? `<a class="mob-item__link" href="${p.link}" target="_blank" rel="noopener noreferrer">view project ↗</a>` : ''}
+                        ${p.link ? `<a class="mob-item__link" href="${p.link}" target="_blank" rel="noopener noreferrer">view project <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>` : ''}
                     </div>`).join('');
 
                 // Desktop: dot selector
