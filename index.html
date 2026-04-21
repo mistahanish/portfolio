@@ -865,8 +865,19 @@
                 /* Show mobile list */
                 .mobile-list { display: flex; flex-direction: column; width: 100%; }
 
-                /* Hero scrolls too */
-                .hero { zoom: 1; overflow-y: auto; }
+                /* Nav */
+                .nav { gap: 1vw; padding: 0 2vw 8px; height: auto; min-height: 2.8rem; }
+                .nav a { font-size: clamp(0.85rem, 4.5vw, 1.2rem); }
+
+                /* Footer */
+                .footer-date, .footer-time, .sound-btn { font-size: clamp(1rem, 4.5vw, 1.4rem); }
+                .back-label, .arch-btn { font-size: clamp(1rem, 5.5vw, 1.5rem); }
+                .back-svg { width: clamp(22px, 6vw, 36px) !important; }
+
+                /* Hero */
+                .hero { zoom: 1; overflow: hidden; justify-content: center; }
+                #hero-canvas-wrap { width: 72vw; max-width: 72vw; }
+                .hero-arrow { display: none; }
 
                 /* About/gallery/archive bodies */
                 .about-body,
