@@ -643,14 +643,30 @@
                     opacity 0.38s,
                     transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1);
             }
-            .about-tile.visible { opacity: 1; transform: scale(1); }
+            .about-tile.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
             /* counter-clockwise from top-right */
-            #about-tile-tr { transition-delay: 0s; }
-            #about-tile-tl { transition-delay: 0.11s; }
-            #about-tile-bl { transition-delay: 0.22s; }
-            #about-tile-br { transition-delay: 0.33s; }
-            .about-tile--full { background: var(--orange); }
-            .about-tile--pale { background: var(--orange-pale); }
+            #about-tile-tr {
+                transition-delay: 0s;
+            }
+            #about-tile-tl {
+                transition-delay: 0.11s;
+            }
+            #about-tile-bl {
+                transition-delay: 0.22s;
+                justify-content: flex-end;
+            }
+            #about-tile-br {
+                transition-delay: 0.33s;
+            }
+            .about-tile--full {
+                background: var(--orange);
+            }
+            .about-tile--pale {
+                background: var(--orange-pale);
+            }
             /* binky hover reveal */
             .about-tile--binky {
                 position: relative;
@@ -676,7 +692,9 @@
                 pointer-events: none;
                 transition: opacity 0.25s;
             }
-            .about-tile--binky:hover .about-binky-reveal { opacity: 1; }
+            .about-tile--binky:hover .about-binky-reveal {
+                opacity: 1;
+            }
             .about-binky-icon {
                 width: 55%;
                 aspect-ratio: 1;
@@ -698,14 +716,17 @@
             }
             .about-contact {
                 display: inline-block;
-                font-size: calc(clamp(0.6rem, 1cqw, 0.85rem) * 2);
+                font-size: calc(clamp(0.6rem, 1cqw, 0.85rem) * 2.5);
                 font-weight: 700;
-                color: rgba(255,255,255,0.6);
+                color: rgba(255, 255, 255, 0.6);
                 text-decoration: none;
                 letter-spacing: 0.04em;
                 transition: color 0.2s;
             }
-            .about-contact:hover { color: #ffffff; opacity: 1; }
+            .about-contact:hover {
+                color: #ffffff;
+                opacity: 1;
+            }
 
             /* ── GALLERY PAGE ── */
             .gallery-body {
@@ -755,7 +776,9 @@
             /* ══════════════════════════════
                MOBILE  ≤ 768px
             ══════════════════════════════ */
-            .mobile-list { display: none; }
+            .mobile-list {
+                display: none;
+            }
 
             .mob-item {
                 padding: 2rem 0 1.75rem;
@@ -827,7 +850,9 @@
                 letter-spacing: 0.04em;
                 transition: color 0.2s;
             }
-            .mob-item__link:hover { color: var(--orange); }
+            .mob-item__link:hover {
+                color: var(--orange);
+            }
             .mob-sep {
                 height: 1.5px;
                 background: var(--orange);
@@ -836,7 +861,10 @@
             }
 
             @media (max-width: 768px) {
-                html, body { align-items: flex-start; }
+                html,
+                body {
+                    align-items: flex-start;
+                }
 
                 .frame {
                     aspect-ratio: unset;
@@ -860,31 +888,70 @@
                 /* Hide desktop dot/circle/info on mobile */
                 .dot-col,
                 .main-wrap,
-                .info-panel { display: none !important; }
+                .info-panel {
+                    display: none !important;
+                }
 
                 /* Show mobile list */
-                .mobile-list { display: flex; flex-direction: column; width: 100%; }
+                .mobile-list {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                }
 
                 /* Nav */
-                .nav { gap: 1vw; padding: 0 2vw 8px; height: auto; min-height: 2.8rem; }
-                .nav a { font-size: clamp(0.85rem, 4.5vw, 1.2rem); }
+                .nav {
+                    gap: 1vw;
+                    padding: 0 2vw 8px;
+                    height: auto;
+                    min-height: 2.8rem;
+                }
+                .nav a {
+                    font-size: clamp(0.85rem, 4.5vw, 1.2rem);
+                }
 
                 /* Footer */
-                .footer-date, .footer-time, .sound-btn { font-size: clamp(1rem, 4.5vw, 1.4rem); }
-                .back-label, .arch-btn { font-size: clamp(1rem, 5.5vw, 1.5rem); }
-                .back-svg { width: clamp(22px, 6vw, 36px) !important; }
+                .footer-date,
+                .footer-time,
+                .sound-btn {
+                    font-size: clamp(1rem, 4.5vw, 1.4rem);
+                }
+                .back-label,
+                .arch-btn {
+                    font-size: clamp(1rem, 5.5vw, 1.5rem);
+                }
+                .back-svg {
+                    width: clamp(22px, 6vw, 36px) !important;
+                }
 
                 /* Hero */
-                .hero { zoom: 1; overflow: hidden; justify-content: center; }
-                #hero-canvas-wrap { width: 72vw; max-width: 72vw; }
-                .hero-arrow { display: none; }
+                .hero {
+                    zoom: 1;
+                    overflow: hidden;
+                    justify-content: center;
+                }
+                #hero-canvas-wrap {
+                    width: 72vw;
+                    max-width: 72vw;
+                }
+                .hero-arrow {
+                    display: none;
+                }
 
                 /* About/gallery/archive bodies */
                 .about-body,
                 .gallery-body,
-                .arch-body { zoom: 1; overflow-y: auto; }
-                .about-grid { width: 100%; height: auto; }
-                .about-tile { min-height: 160px; }
+                .arch-body {
+                    zoom: 1;
+                    overflow-y: auto;
+                }
+                .about-grid {
+                    width: 100%;
+                    height: auto;
+                }
+                .about-tile {
+                    min-height: 160px;
+                }
             }
         </style>
     </head>
@@ -1225,23 +1292,43 @@
                 <div class="about-body">
                     <div class="about-grid">
                         <!-- top-left: pale, binkyface reveal -->
-                        <div class="about-tile about-tile--pale about-tile--binky" id="about-tile-tl">
+                        <div
+                            class="about-tile about-tile--pale about-tile--binky"
+                            id="about-tile-tl"
+                        >
                             <div class="about-binky-reveal">
                                 <div class="about-binky-icon"></div>
                             </div>
                         </div>
                         <!-- top-right: full orange, coder bio -->
-                        <div class="about-tile about-tile--full" id="about-tile-tr">
-                            <p class="about-tile-text">hello, i'm hanish. i'm a software engineer with a passion for building clean, thoughtful interfaces. i enjoy working across the full stack — from frontend design systems to backend services.</p>
+                        <div
+                            class="about-tile about-tile--full"
+                            id="about-tile-tr"
+                        >
+                            <p class="about-tile-text">
+                                hello, i'm hanish. i'm a software engineer with
+                                a passion for building clean, thoughtful
+                                interfaces. i enjoy working across the full
+                                stack — from frontend design systems to backend
+                                services.
+                            </p>
                         </div>
-                        <!-- bottom-left: full orange, contact -->
-                        <div class="about-tile about-tile--full" id="about-tile-bl">
-                            <a class="about-contact" href="mailto:me@hanishv.com" target="_blank" rel="noopener noreferrer">me@hanishv.com <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                            <a class="about-contact" href="https://instagram.com/hanishh_l5" target="_blank" rel="noopener noreferrer">@hanishh_l5 <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                        </div>
+                        <!-- bottom-left: full orange, contact (populated from contact.js) -->
+                        <div
+                            class="about-tile about-tile--full"
+                            id="about-tile-bl"
+                        ></div>
                         <!-- bottom-right: pale, misha bio -->
-                        <div class="about-tile about-tile--pale" id="about-tile-br">
-                            <p class="about-tile-text">misha is my pen name as well as my russian name. as an artist i love exploring digital mediums, creative coding, and anything that sits at the edge of art and technology.</p>
+                        <div
+                            class="about-tile about-tile--pale"
+                            id="about-tile-br"
+                        >
+                            <p class="about-tile-text">
+                                misha is my pen name as well as my russian name.
+                                as an artist i love exploring digital mediums,
+                                creative coding, and anything that sits at the
+                                edge of art and technology.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1437,6 +1524,7 @@
         <script src="exp.js"></script>
         <script src="projects.js"></script>
         <script src="archive.js"></script>
+        <script src="contact.js"></script>
         <script>
             // ── Data ──
             // ── Build dots helper ──
@@ -1496,9 +1584,10 @@
 
             function initExpPage() {
                 // Mobile: render scrollable list
-                const mobList = document.getElementById('exp-mobile-list');
-                mobList.innerHTML = EXP.map((e, i) => `
-                    ${i > 0 ? '<div class="mob-sep"></div>' : ''}
+                const mobList = document.getElementById("exp-mobile-list");
+                mobList.innerHTML = EXP.map(
+                    (e, i) => `
+                    ${i > 0 ? '<div class="mob-sep"></div>' : ""}
                     <div class="mob-item">
                         <div class="mob-item__date">${e.dates}</div>
                         <div class="mob-item__header">
@@ -1506,8 +1595,9 @@
                             <div class="mob-item__org">${e.title}</div>
                         </div>
                         <div class="mob-item__desc">${e.desc}</div>
-                        ${e.techs && e.techs.length ? `<div class="mob-item__techs">${e.techs.map(t => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join('')}</div>` : ''}
-                    </div>`).join('');
+                        ${e.techs && e.techs.length ? `<div class="mob-item__techs">${e.techs.map((t) => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join("")}</div>` : ""}
+                    </div>`,
+                ).join("");
 
                 // Desktop: dot selector
                 expDots = buildDots(
@@ -1541,7 +1631,9 @@
                     document.getElementById("exp-title").textContent = e.title;
                     document.getElementById("exp-dates").textContent = e.dates;
                     document.getElementById("exp-desc").textContent = e.desc;
-                    document.getElementById("exp-techs").innerHTML = (e.techs || [])
+                    document.getElementById("exp-techs").innerHTML = (
+                        e.techs || []
+                    )
                         .map(
                             (t) =>
                                 `<div class="tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`,
@@ -1563,19 +1655,21 @@
 
             function initProjectsPage() {
                 // Mobile: render scrollable list
-                const mobList = document.getElementById('proj-mobile-list');
-                mobList.innerHTML = PROJECTS.map((p, i) => `
-                    ${i > 0 ? '<div class="mob-sep"></div>' : ''}
+                const mobList = document.getElementById("proj-mobile-list");
+                mobList.innerHTML = PROJECTS.map(
+                    (p, i) => `
+                    ${i > 0 ? '<div class="mob-sep"></div>' : ""}
                     <div class="mob-item">
                         <div class="mob-item__date">${p.year}</div>
                         <div class="mob-item__header">
                             <div class="mob-item__title">${p.name}</div>
                         </div>
-                        ${p.sub ? `<div class="mob-item__sub">${p.sub}</div>` : ''}
+                        ${p.sub ? `<div class="mob-item__sub">${p.sub}</div>` : ""}
                         <div class="mob-item__desc">${p.desc}</div>
-                        ${p.techs && p.techs.length ? `<div class="mob-item__techs">${p.techs.map(t => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join('')}</div>` : ''}
-                        ${p.link ? `<a class="mob-item__link" href="${p.link}" target="_blank" rel="noopener noreferrer">view project <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>` : ''}
-                    </div>`).join('');
+                        ${p.techs && p.techs.length ? `<div class="mob-item__techs">${p.techs.map((t) => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join("")}</div>` : ""}
+                        ${p.link ? `<a class="mob-item__link" href="${p.link}" target="_blank" rel="noopener noreferrer">view project <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>` : ""}
+                    </div>`,
+                ).join("");
 
                 // Desktop: dot selector
                 projDots = buildDots(
@@ -1643,7 +1737,14 @@
             }
 
             // ── About page ──
+            const ARROW_SVG = `<svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
             function initAboutPage() {
+                document.getElementById("about-tile-bl").innerHTML =
+                    CONTACT.map(
+                        (c) =>
+                            `<a class="about-contact" href="${c.href}" target="_blank" rel="noopener noreferrer">${c.label} ${ARROW_SVG}</a>`,
+                    ).join("");
                 setTimeout(() => {
                     document
                         .querySelectorAll(".about-tile")
