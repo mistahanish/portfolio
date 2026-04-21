@@ -188,13 +188,15 @@
                 text-decoration: none;
                 cursor: pointer;
                 font-family: "Albert Sans", sans-serif;
-                font-size: clamp(39.6px, 5.4cqw, 72px);
+                font-size: calc(clamp(39.6px, 5.4cqw, 72px) * 1.1);
                 font-weight: 700;
                 color: var(--orange-pale);
                 white-space: nowrap;
                 transition: color 0.2s;
             }
-            .arch-btn:hover { color: #000000; }
+            .arch-btn:hover {
+                color: #000000;
+            }
 
             /* ── ARCHIVE PAGE ── */
             .arch-body {
@@ -219,9 +221,14 @@
                 gap: 0.4em;
                 opacity: 0;
                 transform: translateX(-15%);
-                transition: opacity 0.5s, transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+                transition:
+                    opacity 0.5s,
+                    transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
             }
-            .arch-main.visible { opacity: 1; transform: translateX(0); }
+            .arch-main.visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
             .arch-item-title {
                 font-size: clamp(1rem, 2.2cqw, 2.2rem);
                 font-weight: 900;
@@ -250,18 +257,25 @@
                 transition: background 0.2s;
             }
             .arch-dot:hover,
-            .arch-dot.active { background: var(--orange); }
+            .arch-dot.active {
+                background: var(--orange);
+            }
             .arch-info {
                 width: clamp(160px, 28cqw, 340px);
                 flex-shrink: 0;
                 opacity: 0;
                 transform: translateX(15px);
-                transition: opacity 0.35s, transform 0.35s;
+                transition:
+                    opacity 0.35s,
+                    transform 0.35s;
                 display: flex;
                 flex-direction: column;
                 gap: 0.5em;
             }
-            .arch-info.visible { opacity: 1; transform: translateX(0); }
+            .arch-info.visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
             .arch-info .info-label {
                 font-size: calc(clamp(0.6rem, 1cqw, 0.9rem) * 2.5);
                 font-weight: 700;
@@ -308,7 +322,9 @@
                     opacity: 1;
                 }
             }
-            #archive-page .logo { color: #000000; }
+            #archive-page .logo {
+                color: #000000;
+            }
             #gallery-page.visible .logo {
                 animation: logo-slide-in 0.45s cubic-bezier(0.22, 1, 0.36, 1)
                     both;
@@ -604,68 +620,92 @@
                 align-items: center;
                 justify-content: center;
                 zoom: 0.8;
-                gap: 6%;
                 padding: 0 4%;
             }
-            .about-circle {
-                width: clamp(192px, 31.2cqw, 384px);
-                height: clamp(192px, 31.2cqw, 384px);
-                border-radius: 50%;
-                background: var(--orange);
-                flex-shrink: 0;
+            .about-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: clamp(6px, 0.9cqw, 14px);
+                width: clamp(400px, 72cqw, 720px);
+                height: clamp(280px, 48cqw, 500px);
+            }
+            .about-tile {
+                border-radius: clamp(10px, 1.4cqw, 18px);
+                padding: clamp(18px, 2.8cqw, 38px);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 0.7em;
+                opacity: 0;
+                transform: scale(0.88);
+                transition:
+                    opacity 0.38s,
+                    transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1);
+            }
+            .about-tile.visible { opacity: 1; transform: scale(1); }
+            /* counter-clockwise from top-right */
+            #about-tile-tr { transition-delay: 0s; }
+            #about-tile-tl { transition-delay: 0.11s; }
+            #about-tile-bl { transition-delay: 0.22s; }
+            #about-tile-br { transition-delay: 0.33s; }
+            .about-tile--full { background: var(--orange); }
+            .about-tile--pale { background: var(--orange-pale); }
+            /* binky hover reveal */
+            .about-tile--binky {
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                transition:
+                    opacity 0.38s,
+                    transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1),
+                    background 0.25s,
+                    box-shadow 0.25s;
+            }
+            .about-tile--binky:hover {
+                background: #ffffff;
+                box-shadow: inset 0 0 0 clamp(3px, 0.45cqw, 6px) var(--orange);
+            }
+            .about-binky-reveal {
+                position: absolute;
+                inset: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
-                transform: scale(0.85);
-                transition:
-                    opacity 0.5s,
-                    transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+                pointer-events: none;
+                transition: opacity 0.25s;
             }
-            .about-circle.visible {
-                opacity: 1;
-                transform: scale(1);
+            .about-tile--binky:hover .about-binky-reveal { opacity: 1; }
+            .about-binky-icon {
+                width: 55%;
+                aspect-ratio: 1;
+                background-color: var(--orange);
+                mask-image: url("assets/art/binkyface.svg");
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center;
+                -webkit-mask-image: url("assets/art/binkyface.svg");
+                -webkit-mask-size: contain;
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center;
             }
-            .about-circle-text {
-                font-size: clamp(3rem, 6cqw, 6rem);
-                font-weight: 900;
-                color: var(--white);
-                letter-spacing: -0.04em;
-            }
-            .about-bio {
-                width: clamp(192px, 31.2cqw, 384px);
-                flex-shrink: 0;
-                opacity: 0;
-                transform: translateX(15px);
-                transition:
-                    opacity 0.35s 0.15s,
-                    transform 0.35s 0.15s;
-                display: flex;
-                flex-direction: column;
-                gap: 0.9em;
-            }
-            .about-bio.visible {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            .about-bio p {
-                font-size: CALC(clamp(0.65rem, 1.15cqw, 1rem) * 1.5);
+            .about-tile-text {
+                font-size: calc(clamp(0.6rem, 1.05cqw, 0.9rem) * 1.5);
                 font-weight: 700;
-                color: var(--orange);
-                line-height: 1.7;
+                color: white;
+                line-height: 1.65;
             }
             .about-contact {
                 display: inline-block;
                 font-size: calc(clamp(0.6rem, 1cqw, 0.85rem) * 2);
                 font-weight: 700;
-                color: var(--orange-pale);
+                color: rgba(255,255,255,0.6);
                 text-decoration: none;
                 letter-spacing: 0.04em;
                 transition: color 0.2s;
             }
-            .about-contact:hover {
-                color: var(--orange);
-            }
+            .about-contact:hover { color: #ffffff; opacity: 1; }
 
             /* ── GALLERY PAGE ── */
             .gallery-body {
@@ -710,6 +750,130 @@
                 font-weight: 900;
                 color: var(--orange-pale);
                 letter-spacing: -0.04em;
+            }
+
+            /* ══════════════════════════════
+               MOBILE  ≤ 768px
+            ══════════════════════════════ */
+            .mobile-list { display: none; }
+
+            .mob-item {
+                padding: 2rem 0 1.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.45em;
+            }
+            .mob-item__date {
+                font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+                font-weight: 700;
+                color: var(--orange-pale);
+                letter-spacing: 0.02em;
+            }
+            .mob-item__header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 0.75rem;
+            }
+            .mob-item__title {
+                font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+                font-weight: 900;
+                color: var(--orange);
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+            }
+            .mob-item__org {
+                font-size: clamp(1rem, 4.5vw, 1.3rem);
+                font-weight: 900;
+                color: var(--orange);
+                letter-spacing: -0.02em;
+                text-align: right;
+                flex-shrink: 0;
+            }
+            .mob-item__sub {
+                font-size: clamp(0.7rem, 3vw, 0.85rem);
+                font-weight: 700;
+                color: var(--orange-pale);
+            }
+            .mob-item__desc {
+                font-size: clamp(0.75rem, 3.5vw, 0.95rem);
+                font-weight: 700;
+                color: var(--orange);
+                line-height: 1.6;
+            }
+            .mob-item__techs {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-top: 0.2em;
+            }
+            .mob-tech-icon {
+                width: 22px;
+                height: 22px;
+                background-color: var(--orange);
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center;
+                -webkit-mask-size: contain;
+                -webkit-mask-repeat: no-repeat;
+                -webkit-mask-position: center;
+            }
+            .mob-item__link {
+                display: inline-block;
+                font-size: clamp(0.7rem, 3vw, 0.85rem);
+                font-weight: 700;
+                color: var(--orange-pale);
+                text-decoration: none;
+                letter-spacing: 0.04em;
+                transition: color 0.2s;
+            }
+            .mob-item__link:hover { color: var(--orange); }
+            .mob-sep {
+                height: 1.5px;
+                background: var(--orange);
+                opacity: 0.25;
+                width: 100%;
+            }
+
+            @media (max-width: 768px) {
+                html, body { align-items: flex-start; }
+
+                .frame {
+                    aspect-ratio: unset;
+                    width: 100vw;
+                    height: 100svh;
+                    grid-template-rows: auto auto 1fr auto;
+                }
+
+                /* Middle content row scrolls internally */
+                .section-body {
+                    overflow-y: auto;
+                    -webkit-overflow-scrolling: touch;
+                    zoom: 1;
+                    flex-direction: column;
+                    align-items: stretch;
+                    justify-content: flex-start;
+                    padding: 0 5%;
+                    gap: 0;
+                }
+
+                /* Hide desktop dot/circle/info on mobile */
+                .dot-col,
+                .main-wrap,
+                .info-panel { display: none !important; }
+
+                /* Show mobile list */
+                .mobile-list { display: flex; flex-direction: column; width: 100%; }
+
+                /* Hero scrolls too */
+                .hero { zoom: 1; overflow-y: auto; }
+
+                /* About/gallery/archive bodies */
+                .about-body,
+                .gallery-body,
+                .arch-body { zoom: 1; overflow-y: auto; }
+                .about-grid { width: 100%; height: auto; }
+                .about-tile { min-height: 160px; }
             }
         </style>
     </head>
@@ -806,7 +970,12 @@
                             />
                         </svg>
                     </a>
-                    <a class="arch-btn" href="#" onclick="showPage(event, 'archive')">a.</a>
+                    <a
+                        class="arch-btn"
+                        href="#"
+                        onclick="showPage(event, 'archive')"
+                        >a.</a
+                    >
                 </div>
             </div>
 
@@ -853,6 +1022,7 @@
                         </svg>
                         <div class="main-circle"></div>
                     </div>
+                    <div class="mobile-list" id="exp-mobile-list"></div>
                     <div class="info-panel" id="exp-info">
                         <div class="info-label" id="exp-dates">
                             jan 2025 — present
@@ -864,6 +1034,7 @@
                             conducting research on quantum algorithms for
                             portfolio optimization.
                         </div>
+                        <div class="tech-grid" id="exp-techs"></div>
                     </div>
                 </div>
                 <div class="footer" style="position: relative">
@@ -892,7 +1063,12 @@
                             />
                         </svg>
                     </a>
-                    <a class="arch-btn" href="#" onclick="showPage(event, 'archive')">a.</a>
+                    <a
+                        class="arch-btn"
+                        href="#"
+                        onclick="showPage(event, 'archive')"
+                        >a.</a
+                    >
                 </div>
             </div>
 
@@ -939,6 +1115,7 @@
                         </svg>
                         <div class="main-circle"></div>
                     </div>
+                    <div class="mobile-list" id="proj-mobile-list"></div>
                     <div class="info-panel" id="proj-info">
                         <div class="info-label" id="proj-year">2025</div>
                         <div class="info-title" id="proj-title">chipless.</div>
@@ -1009,7 +1186,12 @@
                             />
                         </svg>
                     </a>
-                    <a class="arch-btn" href="#" onclick="showPage(event, 'archive')">a.</a>
+                    <a
+                        class="arch-btn"
+                        href="#"
+                        onclick="showPage(event, 'archive')"
+                        >a.</a
+                    >
                 </div>
             </div>
 
@@ -1030,46 +1212,26 @@
                     <a href="#" onclick="showPage(event, 'about')">about</a>
                 </nav>
                 <div class="about-body">
-                    <div class="about-circle" id="about-circle">
-                        <span class="about-circle-text">hv.</span>
-                    </div>
-                    <div class="about-bio" id="about-bio">
-                        <p>
-                            hi. i'm hanish. i'm a software engineer with a
-                            passion for building clean, thoughtful interfaces. i
-                            enjoy working across the stack — from frontend
-                            design systems to backend services.
-                        </p>
-                        <p>
-                            on top of all this, i love exploring ai, systems
-                            programming, and creative side projects. currently a
-                            student at the university of maryland.
-                        </p>
-                        <a
-                            class="about-contact"
-                            href="mailto:me@hanishv.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >me@hanishv.com
-                            <svg
-                                viewBox="6 6 12 12"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                style="
-                                    width: 0.9em;
-                                    height: 0.9em;
-                                    vertical-align: middle;
-                                    stroke: currentColor;
-                                    transform: scaleY(-1);
-                                "
-                            >
-                                <path
-                                    d="M7 17L17 7M17 7H7M17 7V17"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                /></svg
-                        ></a>
+                    <div class="about-grid">
+                        <!-- top-left: pale, binkyface reveal -->
+                        <div class="about-tile about-tile--pale about-tile--binky" id="about-tile-tl">
+                            <div class="about-binky-reveal">
+                                <div class="about-binky-icon"></div>
+                            </div>
+                        </div>
+                        <!-- top-right: full orange, coder bio -->
+                        <div class="about-tile about-tile--full" id="about-tile-tr">
+                            <p class="about-tile-text">hello, i'm hanish. i'm a software engineer with a passion for building clean, thoughtful interfaces. i enjoy working across the full stack — from frontend design systems to backend services.</p>
+                        </div>
+                        <!-- bottom-left: full orange, contact -->
+                        <div class="about-tile about-tile--full" id="about-tile-bl">
+                            <a class="about-contact" href="mailto:me@hanishv.com" target="_blank" rel="noopener noreferrer">me@hanishv.com <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                            <a class="about-contact" href="https://instagram.com/hanishh_l5" target="_blank" rel="noopener noreferrer">@hanishh_l5 <svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                        <!-- bottom-right: pale, misha bio -->
+                        <div class="about-tile about-tile--pale" id="about-tile-br">
+                            <p class="about-tile-text">misha is my pen name as well as my russian name. as an artist i love exploring digital mediums, creative coding, and anything that sits at the edge of art and technology.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="footer" style="position: relative">
@@ -1098,7 +1260,12 @@
                             />
                         </svg>
                     </a>
-                    <a class="arch-btn" href="#" onclick="showPage(event, 'archive')">a.</a>
+                    <a
+                        class="arch-btn"
+                        href="#"
+                        onclick="showPage(event, 'archive')"
+                        >a.</a
+                    >
                 </div>
             </div>
 
@@ -1155,17 +1322,28 @@
                             />
                         </svg>
                     </a>
-                    <a class="arch-btn" href="#" onclick="showPage(event, 'archive')">a.</a>
+                    <a
+                        class="arch-btn"
+                        href="#"
+                        onclick="showPage(event, 'archive')"
+                        >a.</a
+                    >
                 </div>
             </div>
             <!-- ── ARCHIVE ── -->
             <div id="archive-page" class="overlay-page">
                 <div class="header">
-                    <a class="logo" href="#" onclick="goHome(event)">archive.</a>
-                    <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+                    <a class="logo" href="#" onclick="goHome(event)"
+                        >archive.</a
+                    >
+                    <a class="resume-link" href="Hanish.pdf" target="_blank"
+                        >resume</a
+                    >
                 </div>
                 <nav class="nav">
-                    <a href="#" onclick="showPage(event, 'projects')">projects</a>
+                    <a href="#" onclick="showPage(event, 'projects')"
+                        >projects</a
+                    >
                     <a href="#" onclick="showPage(event, 'exp')">experience</a>
                     <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
                     <a href="#" onclick="showPage(event, 'about')">about</a>
@@ -1173,7 +1351,9 @@
                 <div class="arch-body">
                     <div class="arch-left">
                         <div class="arch-main" id="arch-main">
-                            <div class="arch-item-title" id="arch-item-title">item.</div>
+                            <div class="arch-item-title" id="arch-item-title">
+                                item.
+                            </div>
                             <div class="arch-square"></div>
                         </div>
                         <div class="arch-dots-row" id="arch-dots"></div>
@@ -1195,16 +1375,29 @@
                                 viewBox="6 6 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1);"
+                                style="
+                                    width: 0.9em;
+                                    height: 0.9em;
+                                    vertical-align: middle;
+                                    stroke: currentColor;
+                                    transform: scaleY(-1);
+                                "
                             >
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M7 17L17 7M17 7H7M17 7V17"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
                             </svg>
                         </a>
                     </div>
                 </div>
                 <div class="footer" style="position: relative">
                     <span class="footer-date sub-date"></span>
-                    <button class="sound-btn" onclick="toggleSound()">sound off</button>
+                    <button class="sound-btn" onclick="toggleSound()">
+                        sound off
+                    </button>
                     <span class="footer-time sub-time"></span>
                     <a class="back-btn" href="#" onclick="goHome(event)">
                         <span class="back-label">back</span>
@@ -1213,9 +1406,17 @@
                             viewBox="6 6 12 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            style="width: clamp(33px, 4.5cqw, 60px); height: clamp(33px, 4.5cqw, 60px);"
+                            style="
+                                width: clamp(33px, 4.5cqw, 60px);
+                                height: clamp(33px, 4.5cqw, 60px);
+                            "
                         >
-                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M7 17L17 7M17 7H7M17 7V17"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
                         </svg>
                     </a>
                 </div>
@@ -1283,6 +1484,21 @@
             let expDots = null;
 
             function initExpPage() {
+                // Mobile: render scrollable list
+                const mobList = document.getElementById('exp-mobile-list');
+                mobList.innerHTML = EXP.map((e, i) => `
+                    ${i > 0 ? '<div class="mob-sep"></div>' : ''}
+                    <div class="mob-item">
+                        <div class="mob-item__date">${e.dates}</div>
+                        <div class="mob-item__header">
+                            <div class="mob-item__title">${e.role}</div>
+                            <div class="mob-item__org">${e.title}</div>
+                        </div>
+                        <div class="mob-item__desc">${e.desc}</div>
+                        ${e.techs && e.techs.length ? `<div class="mob-item__techs">${e.techs.map(t => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join('')}</div>` : ''}
+                    </div>`).join('');
+
+                // Desktop: dot selector
                 expDots = buildDots(
                     document.getElementById("exp-dots"),
                     EXP.length,
@@ -1314,6 +1530,12 @@
                     document.getElementById("exp-title").textContent = e.title;
                     document.getElementById("exp-dates").textContent = e.dates;
                     document.getElementById("exp-desc").textContent = e.desc;
+                    document.getElementById("exp-techs").innerHTML = (e.techs || [])
+                        .map(
+                            (t) =>
+                                `<div class="tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`,
+                        )
+                        .join("");
                     wrap.classList.add("visible");
                     info.classList.add("visible");
                 }, 180);
@@ -1329,6 +1551,22 @@
             let projDots = null;
 
             function initProjectsPage() {
+                // Mobile: render scrollable list
+                const mobList = document.getElementById('proj-mobile-list');
+                mobList.innerHTML = PROJECTS.map((p, i) => `
+                    ${i > 0 ? '<div class="mob-sep"></div>' : ''}
+                    <div class="mob-item">
+                        <div class="mob-item__date">${p.year}</div>
+                        <div class="mob-item__header">
+                            <div class="mob-item__title">${p.name}</div>
+                        </div>
+                        ${p.sub ? `<div class="mob-item__sub">${p.sub}</div>` : ''}
+                        <div class="mob-item__desc">${p.desc}</div>
+                        ${p.techs && p.techs.length ? `<div class="mob-item__techs">${p.techs.map(t => `<div class="mob-tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`).join('')}</div>` : ''}
+                        ${p.link ? `<a class="mob-item__link" href="${p.link}" target="_blank" rel="noopener noreferrer">view project ↗</a>` : ''}
+                    </div>`).join('');
+
+                // Desktop: dot selector
                 projDots = buildDots(
                     document.getElementById("proj-dots"),
                     PROJECTS.length,
@@ -1397,21 +1635,15 @@
             function initAboutPage() {
                 setTimeout(() => {
                     document
-                        .getElementById("about-circle")
-                        .classList.add("visible");
-                    document
-                        .getElementById("about-bio")
-                        .classList.add("visible");
+                        .querySelectorAll(".about-tile")
+                        .forEach((t) => t.classList.add("visible"));
                 }, 80);
             }
 
             function resetAboutPage() {
                 document
-                    .getElementById("about-circle")
-                    .classList.remove("visible");
-                document
-                    .getElementById("about-bio")
-                    .classList.remove("visible");
+                    .querySelectorAll(".about-tile")
+                    .forEach((t) => t.classList.remove("visible"));
             }
 
             // ── Themes ──
@@ -1442,7 +1674,8 @@
                     .map((s) => `${prefix} ${s.trim()}`)
                     .join(", ");
 
-            function updateCursors(color) { return; // disabled
+            function updateCursors(color) {
+                return; // disabled
                 const cur = `url("data:image/svg+xml,${encodeURIComponent(CUR_SVG(color))}")`;
                 const click = `url("data:image/svg+xml,${encodeURIComponent(CLICK_SVG(color))}")`;
                 cursorStyleEl.textContent = `
@@ -1470,75 +1703,89 @@
 
             updateCursors("#FF6200");
 
-
             // ── Archive page ──
             let archDots = null;
 
             function initArchivePage() {
                 archDots = [];
-                const row = document.getElementById('arch-dots');
-                row.innerHTML = '';
-                const DOT_SIZE = Math.max(20, Math.round(72 / Math.sqrt(ARCHIVE.length)));
+                const row = document.getElementById("arch-dots");
+                row.innerHTML = "";
+                const DOT_SIZE = Math.max(
+                    20,
+                    Math.round(72 / Math.sqrt(ARCHIVE.length)),
+                );
                 ARCHIVE.forEach((_, i) => {
-                    const d = document.createElement('div');
-                    d.className = 'arch-dot';
-                    d.style.width = DOT_SIZE + 'px';
-                    d.style.height = DOT_SIZE + 'px';
-                    d.style.opacity = '0';
-                    d.style.transform = 'scale(0)';
-                    d.addEventListener('click', () => selectArch(i));
-                    d.addEventListener('mouseenter', () => selectArch(i));
+                    const d = document.createElement("div");
+                    d.className = "arch-dot";
+                    d.style.width = DOT_SIZE + "px";
+                    d.style.height = DOT_SIZE + "px";
+                    d.style.opacity = "0";
+                    d.style.transform = "scale(0)";
+                    d.addEventListener("click", () => selectArch(i));
+                    d.addEventListener("mouseenter", () => selectArch(i));
                     row.appendChild(d);
                     archDots.push(d);
                 });
-                const main = document.getElementById('arch-main');
-                const info = document.getElementById('arch-info');
-                main.classList.remove('visible');
-                info.classList.remove('visible');
+                const main = document.getElementById("arch-main");
+                const info = document.getElementById("arch-info");
+                main.classList.remove("visible");
+                info.classList.remove("visible");
                 setTimeout(() => {
-                    main.classList.add('visible');
+                    main.classList.add("visible");
                     archDots.forEach((d, i) => {
                         setTimeout(() => {
-                            d.style.transition = 'opacity 0.4s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
-                            d.style.opacity = '1';
-                            d.style.transform = 'scale(1)';
+                            d.style.transition =
+                                "opacity 0.4s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)";
+                            d.style.opacity = "1";
+                            d.style.transform = "scale(1)";
                         }, i * 70);
                     });
-                    setTimeout(() => {
-                        selectArch(0);
-                        archDots[0] && archDots[0].classList.add('active');
-                    }, archDots.length * 70 + 150);
+                    setTimeout(
+                        () => {
+                            selectArch(0);
+                            archDots[0] && archDots[0].classList.add("active");
+                        },
+                        archDots.length * 70 + 150,
+                    );
                 }, 80);
             }
 
             function selectArch(idx) {
                 const a = ARCHIVE[idx];
-                archDots && archDots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                const info = document.getElementById('arch-info');
-                info.classList.remove('visible');
+                archDots &&
+                    archDots.forEach((d, i) =>
+                        d.classList.toggle("active", i === idx),
+                    );
+                const info = document.getElementById("arch-info");
+                info.classList.remove("visible");
                 setTimeout(() => {
-                    document.getElementById('arch-item-title').textContent = a.name;
-                    document.getElementById('arch-label').textContent = a.label;
-                    document.getElementById('arch-name').textContent = a.name;
-                    document.getElementById('arch-desc').textContent = a.desc;
-                    const archLink = document.getElementById('arch-link');
-                    if (a.link) { archLink.href = a.link; archLink.style.display = 'inline-block'; }
-                    else { archLink.style.display = 'none'; }
-                    info.classList.add('visible');
+                    document.getElementById("arch-item-title").textContent =
+                        a.name;
+                    document.getElementById("arch-label").textContent = a.label;
+                    document.getElementById("arch-name").textContent = a.name;
+                    document.getElementById("arch-desc").textContent = a.desc;
+                    const archLink = document.getElementById("arch-link");
+                    if (a.link) {
+                        archLink.href = a.link;
+                        archLink.style.display = "inline-block";
+                    } else {
+                        archLink.style.display = "none";
+                    }
+                    info.classList.add("visible");
                 }, 180);
             }
 
             function resetArchivePage() {
-                const main = document.getElementById('arch-main');
-                const info = document.getElementById('arch-info');
-                if (main) main.classList.remove('visible');
-                if (info) info.classList.remove('visible');
+                const main = document.getElementById("arch-main");
+                const info = document.getElementById("arch-info");
+                if (main) main.classList.remove("visible");
+                if (info) info.classList.remove("visible");
                 if (archDots) {
-                    archDots.forEach(d => {
-                        d.classList.remove('active');
-                        d.style.transition = 'none';
-                        d.style.opacity = '0';
-                        d.style.transform = 'scale(0)';
+                    archDots.forEach((d) => {
+                        d.classList.remove("active");
+                        d.style.transition = "none";
+                        d.style.opacity = "0";
+                        d.style.transform = "scale(0)";
                     });
                 }
             }
@@ -1573,6 +1820,7 @@
                 resetProjectsPage();
                 resetAboutPage();
                 resetArchivePage();
+                setTheme("default");
             }
 
             // ── Sound toggle ──
