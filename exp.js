@@ -13,7 +13,7 @@ const EXP = [
   },
   {
     role: "full stack swe.",
-    title: "@Somytech",
+    title: "@Hack4Impact",
     dates: "september 2024 — june 2025",
     desc: "contributed to building impactful software for nonprofits at hack4impact. developed a grant management application using firebase and react for the children's cancer foundation, reducing administrative workload and accelerating grant processing time. participated in agile development including sprint planning and code reviews.",
   },

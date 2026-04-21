@@ -13,11 +13,11 @@ body {
   align-items: flex-start;
   justify-content: center;
   padding: 2.5rem 1rem 4rem;
-  cursor: url("../cursors/cursor.cur"), auto;
+  /* cursor: url("../cursors/cursor.cur"), auto; */
 }
 
 a, button, [role="button"] {
-  cursor: url("../cursors/hand.cur"), pointer;
+  /* cursor: url("../cursors/hand.cur"), pointer; */
 }
 
 a { text-decoration: none; color: inherit; }
@@ -151,7 +151,7 @@ a:hover { opacity: 0.8; }
 .bw-card summary {
   list-style: none;
   padding: 0.9rem 0;
-  cursor: url("../cursors/hand.cur"), pointer;
+  /* cursor: url("../cursors/hand.cur"), pointer; */
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
