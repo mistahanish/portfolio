@@ -1,0 +1,16 @@
+/*
+ * Entry stylesheet — import order matters (tokens before components).
+ */
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./components/buttons.css";
+@import "./components/marquee.css";
+@import "./components/title-card.css";
+@import "./components/page-links.css";
+@import "./components/actions-bar.css";
+@import "./components/home-button.css";
+@import "./components/list-pages.css";
+@import "./components/y2k-background.css";
+@import "./components/y2k-scene.css";
