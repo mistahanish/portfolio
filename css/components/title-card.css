@@ -1,0 +1,21 @@
+/*
+ * Home hero title + optional stamp line (static; update by hand if desired).
+ */
+
+.title-card__heading {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.title-card__heading a {
+  text-decoration: none;
+}
+
+.title-card__stamp {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}

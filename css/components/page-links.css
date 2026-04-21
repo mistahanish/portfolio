@@ -1,0 +1,28 @@
+/*
+ * Primary nav links on the home page.
+ */
+
+.page-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.page-links a {
+  display: block;
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  padding: 0.2rem 0.25rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.page-links a:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+  opacity: 1;
+}

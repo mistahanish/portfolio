@@ -1,0 +1,263 @@
+/*
+ * Shared aesthetic — Trebuchet MS, orange accent, white background.
+ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
+  background: #ffffff;
+  color: #222;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+  /* cursor: url("../cursors/cursor.cur"), auto; */
+}
+
+a, button, [role="button"] {
+  /* cursor: url("../cursors/hand.cur"), pointer; */
+}
+
+a { text-decoration: none; color: inherit; }
+a:hover { opacity: 0.8; }
+
+/* ── Page shell ── */
+.bw-page {
+  width: 100%;
+  max-width: 680px;
+}
+
+/* ── Header ── */
+.bw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+
+.bw-header__name {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.bw-header__label {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #c8c8c8;
+  letter-spacing: -0.02em;
+}
+
+/* ── Tab nav ── */
+.bw-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #c85a00;
+  margin-bottom: 1.75rem;
+}
+
+.bw-nav a {
+  display: block;
+  padding: 0.7rem 0.25rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
+  transition: color 0.15s;
+}
+
+.bw-nav a:hover { color: rgba(255, 255, 255, 0.9); opacity: 1; }
+
+.bw-nav a.active {
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* ── Hero ── */
+.bw-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 240px;
+  margin-bottom: 0;
+}
+
+.bw-hero__char {
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 42%;
+  max-width: 200px;
+  opacity: 0.12;
+  pointer-events: none;
+  filter: grayscale(1);
+  user-select: none;
+}
+
+.bw-hero__bio {
+  margin-left: 34%;
+  padding: 0.25rem 0.5rem 2.5rem 1rem;
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.65;
+}
+
+.bw-hero__arrow {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0;
+  color: #c85a00;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* ── Content ── */
+.bw-content {
+  padding-bottom: 2rem;
+}
+
+.bw-content h2 {
+  color: #c85a00;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bw-content p {
+  color: #c85a00;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.bw-content p + p { margin-top: 0.85rem; }
+
+/* ── Card list (projects / experience) ── */
+.bw-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bw-card {
+  border-top: 1px solid #f0e8e0;
+}
+
+.bw-card:last-child { border-bottom: 1px solid #f0e8e0; }
+
+.bw-card summary {
+  list-style: none;
+  padding: 0.9rem 0;
+  /* cursor: url("../cursors/hand.cur"), pointer; */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.1rem 0.75rem;
+}
+
+.bw-card summary::-webkit-details-marker { display: none; }
+
+.bw-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bw-card__title a {
+  color: #111;
+  text-decoration: none;
+}
+
+.bw-card__title a:hover { color: #c85a00; opacity: 1; }
+
+.bw-card__meta {
+  font-size: 0.85rem;
+  color: #c85a00;
+  font-weight: 700;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bw-card__sub {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.bw-card__body {
+  padding: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.65;
+  border-top: 1px dashed #f0e8e0;
+  padding-top: 0.75rem;
+}
+
+/* ── Footer ── */
+.bw-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0e8e0;
+  margin-top: 0.5rem;
+}
+
+.bw-home {
+  background: #c8c8c8;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  transition: background 0.15s;
+}
+
+.bw-home:hover { background: #b5b5b5; opacity: 1; }
+
+.bw-contact {
+  font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.bw-contact strong {
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── Simple centered message (gallery, 404) ── */
+.bw-simple {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.bw-simple h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  margin-bottom: 0.75rem;
+}
+
+.bw-simple p {
+  color: #a0a0a0;
+  font-size: 1rem;
+}
+
+.bw-simple a {
+  color: #c85a00;
+  font-weight: 700;
+}
