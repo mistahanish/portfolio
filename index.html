@@ -1,204 +1,1260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hanish Vadlamudi — Portfolio</title>
-    <meta name="description" content="Hanish Vadlamudi — projects, experience, and more." />
+    <title>hanish.</title>
     <link rel="icon" href="ahh.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-      :root { --orange: #e85d04; --orange-pale: #f4a67a; }
 
-      html, body { height: 100%; overflow: hidden; }
+      :root {
+        --orange: #ff6200;
+        --orange-pale: color-mix(in srgb, var(--orange) 75%, transparent);
+        --theme-transition:
+          color 0.3s, background 0.3s, fill 0.3s, stroke 0.3s, border-color 0.3s;
+        --white: #ffffff;
+      }
 
+      html,
       body {
-        font-family: 'Barlow', Arial, sans-serif;
-        background: #fff;
+        width: 100%;
+        height: 100%;
+        background: var(--white);
+        font-family: "Albert Sans", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .frame {
+        width: min(100vw, 100vh);
+        height: min(100vw, 100vh);
+        flex-shrink: 0;
+        background: var(--white);
+        position: relative;
         display: grid;
         grid-template-rows: auto auto 1fr auto;
-        height: 100svh;
-        cursor: url("cursors/cursor.cur"), auto;
+        overflow: hidden;
       }
 
-      a { text-decoration: none; color: inherit; cursor: url("cursors/hand.cur"), pointer; }
-      a:hover { opacity: 0.8; }
-
-      /* ── Header ── */
-      .hdr {
+      /* ── HEADER ── */
+      .header {
         display: flex;
+        align-items: flex-end;
         justify-content: space-between;
-        align-items: baseline;
-        padding: 2.25rem 3.5rem 1.25rem;
+        padding: 1px 3.5% 0;
       }
-
-      .hdr__name {
-        font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      .logo {
+        font-size: clamp(2.2rem, 5.5vw, 4.2rem);
         font-weight: 900;
         color: var(--orange);
         letter-spacing: -0.02em;
-      }
-
-      .hdr__resume {
-        font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-        font-weight: 300;
-        color: var(--orange);
-        letter-spacing: -0.02em;
-      }
-
-      /* ── Nav ── */
-      .nav {
-        margin: 0 3.5rem;
-        background: var(--orange);
-        border-radius: 999px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        padding: 0.6rem 1rem;
-      }
-
-      .nav a {
-        color: #fff;
-        text-align: center;
-        font-family: 'Barlow', Arial, sans-serif;
-        font-size: clamp(0.85rem, 1.4vw, 1.1rem);
-        font-weight: 700;
-        letter-spacing: 0.01em;
-      }
-
-      /* ── Hero ── */
-      .hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 0;
-      }
-
-      .hero-inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: clamp(1.5rem, 5vw, 5rem);
-      }
-
-      /* single SVG handles circle + spinning ring together */
-      .hero-svg {
-        width: clamp(260px, 48vh, 420px);
-        height: clamp(260px, 48vh, 420px);
-        overflow: visible;
-        flex-shrink: 0;
-      }
-
-      .ring-group {
-        transform-box: fill-box;
-        transform-origin: center;
-        animation: spin 22s linear infinite;
-      }
-
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-
-      .arrow {
-        font-size: clamp(2rem, 4vh, 3.2rem);
-        color: var(--orange);
         line-height: 1;
-        flex-shrink: 0;
+        text-decoration: none;
+      }
+      .resume-link {
+        font-size: calc(clamp(2.2rem, 5.5vw, 4.2rem));
+        font-weight: 900;
+        color: var(--orange-pale);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .resume-link:hover {
+        color: var(--orange);
       }
 
-      /* ── Footer ── */
-      .ftr {
+      /* ── NAV ── */
+      .nav {
+        margin: 1px 3.5% 0;
+        background: var(--orange);
+        border-radius: 5px;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding: 0.75rem 3rem 2.25rem;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 5rem;
+        height: calc(clamp(2.2rem, 5.5vw, 4.2rem) + 7px);
+        padding-bottom: 10px;
+      }
+      .nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: calc((clamp(2.2rem, 5.5vw, 4.2rem)) * 0.95);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        transition: opacity 0.15s;
+        cursor: pointer;
+      }
+      .nav a:hover {
+        opacity: 0.75;
       }
 
-      .ftr__date,
-      .ftr__time {
-        font-family: 'Barlow', Arial, sans-serif;
-        font-size: clamp(2.8rem, 6.5vw, 5.5rem);
-        font-weight: 300;
+      /* ── FOOTER ── */
+      .footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 3.5% 0;
+        margin-top: auto;
+      }
+      .footer-date,
+      .footer-time {
+        font-size: clamp(1.6rem, 4vw, 3.2rem);
+        font-weight: 900;
         color: var(--orange-pale);
         letter-spacing: -0.02em;
         line-height: 1;
       }
+      .sound-btn {
+        font-family: "Albert Sans", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 3.2rem);
+        font-weight: 900;
+        color: var(--orange-pale);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: color 0.2s;
+      }
+      .sound-btn:hover {
+        color: var(--orange);
+      }
+
+      /* ── BACK BUTTON ── */
+      .back-btn {
+        position: absolute;
+        bottom: calc(100% + 6px);
+        right: 3.5%;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 4px;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .back-label {
+        font-family: "Albert Sans", sans-serif;
+        font-size: clamp(39.6px, 5.4vw, 72px);
+        font-weight: 700;
+        color: var(--orange-pale);
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition:
+          max-width 0.3s ease,
+          color 0.2s;
+      }
+      .back-btn:hover .back-label {
+        max-width: 300px;
+        color: var(--orange);
+      }
+      .back-svg {
+        stroke: var(--orange-pale);
+        transition: stroke 0.2s;
+        transform: rotate(90deg);
+      }
+      .back-btn:hover .back-svg {
+        stroke: var(--orange);
+      }
+
+      /* ── OVERLAY PAGES ── */
+      .overlay-page {
+        position: absolute;
+        inset: 0;
+        background: var(--white);
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+        transition: opacity 0.3s;
+      }
+      .overlay-page.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+      @keyframes logo-slide-in {
+        from { transform: translateX(-48px); opacity: 0; }
+        to   { transform: translateX(0);    opacity: 1; }
+      }
+      #gallery-page.visible .logo {
+        animation: logo-slide-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      /* ── HOME HERO ── */
+      .hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #hero-canvas-wrap {
+        position: relative;
+        width: 55%;
+        aspect-ratio: 1;
+        max-width: 480px;
+        cursor: pointer;
+      }
+      #ascii-hero {
+        position: absolute;
+        width: 75%;
+        height: 75%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 1;
+        transition:
+          background 0.35s,
+          box-shadow 0.35s;
+      }
+      #enter-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(1.4rem, 3vw, 2.6rem);
+        font-weight: 900;
+        color: var(--orange);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+        z-index: 3;
+      }
+      #hero-canvas-wrap:hover #ascii-hero {
+        background: transparent;
+        box-shadow: 0 0 0 clamp(4px, 0.6vw, 10px) var(--orange);
+      }
+      #hero-canvas-wrap:hover #ascii-art {
+        opacity: 0;
+      }
+      #hero-canvas-wrap:hover #enter-label {
+        opacity: 1;
+      }
+
+      .orbit-svg-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .orbit-text {
+        font-family: "Albert Sans", sans-serif;
+        font-size: 23.4px;
+        font-weight: 800;
+        fill: var(--orange);
+        letter-spacing: 2.5px;
+      }
+      @keyframes orbit-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .orbit-ring {
+        animation: orbit-spin 28s linear infinite;
+        transform-origin: 50% 50%;
+      }
+      .hero-arrow {
+        position: absolute;
+        right: 14%;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(28px, 3.5vw, 52px);
+        height: clamp(28px, 3.5vw, 52px);
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.2s;
+      }
+      .hero-arrow svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(45deg);
+      }
+      .hero-arrow:hover {
+        transform: translateY(-50%) translateY(-5px);
+      }
+
+      /* ── SHARED: DOT-CIRCLE-INFO LAYOUT ── */
+      .section-body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4%;
+        gap: 10%;
+        overflow: hidden;
+      }
+      .dot-col {
+        flex-shrink: 0;
+        width: clamp(40px, 6vw, 80px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: clamp(8px, 2.3vw, 20px);
+        transform: rotate(-20deg) translateY(130px);
+      }
+      .item-dot {
+        border-radius: 50%;
+        background: var(--orange-pale);
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.2s;
+        opacity: 0;
+        transform: scale(0);
+      }
+      .item-dot:hover,
+      .item-dot.active {
+        background: var(--orange);
+      }
+      @keyframes dot-spawn {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .main-wrap {
+        position: relative;
+        flex-shrink: 0;
+        opacity: 0;
+        transform: translateX(-15%);
+        transition:
+          opacity 0.5s,
+          transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+      }
+      .main-wrap.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .arc-svg {
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        width: 140%;
+        height: 140%;
+        pointer-events: none;
+        z-index: 2;
+        overflow: visible;
+      }
+      .arc-text {
+        font-family: "Albert Sans", sans-serif;
+        font-size: clamp(9.6px, 1.344vw, 17.28px);
+        font-weight: 900;
+        fill: var(--orange);
+        letter-spacing: 2.5px;
+      }
+      .main-circle {
+        width: clamp(192px, 31.2vw, 384px);
+        height: clamp(192px, 31.2vw, 384px);
+        border-radius: 50%;
+        background: var(--orange);
+        position: relative;
+        z-index: 1;
+      }
+      .info-panel {
+        width: clamp(192px, 31.2vw, 384px);
+        flex-shrink: 0;
+        opacity: 0;
+        transform: translateX(15px);
+        transition:
+          opacity 0.35s,
+          transform 0.35s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5em;
+      }
+      .info-panel.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      /* ── EXPERIENCE INFO ── */
+      #exp-info .info-title {
+        font-size: calc(clamp(1rem, 1.8vw, 1.5rem) * 1.8);
+        font-weight: 900;
+        color: var(--orange);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      #exp-info .info-label {
+        font-size: calc(clamp(0.6rem, 1vw, 0.9rem) * 1.8);
+        font-weight: 700;
+        color: var(--orange-pale);
+        letter-spacing: 0.04em;
+      }
+      #exp-info .info-desc {
+        font-size: calc(clamp(0.6rem, 1.1vw, 0.95rem) * 1.5);
+        font-weight: 700;
+        color: var(--orange);
+        line-height: 1.6;
+      }
+
+      /* ── PROJECTS INFO ── */
+      #proj-info .info-label {
+        font-size: calc(clamp(0.6rem, 1vw, 0.9rem) * 3);
+        font-weight: 700;
+        color: var(--orange-pale);
+        letter-spacing: 0.04em;
+      }
+      #proj-info .info-title {
+        font-size: calc(clamp(1rem, 1.8vw, 1.5rem) * 2);
+        font-weight: 900;
+        color: var(--orange);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      #proj-info .info-sub {
+        font-size: calc(clamp(0.6rem, 1vw, 0.85rem) * 2);
+        font-weight: 700;
+        color: var(--orange-pale);
+      }
+      #proj-info .info-desc {
+        font-size: calc(clamp(0.6rem, 1.1vw, 0.95rem) * 1.5);
+        font-weight: 700;
+        color: var(--orange);
+        line-height: 1.6;
+      }
+      .info-link {
+        display: inline-block;
+        font-size: calc(clamp(0.6rem, 1vw, 0.85rem) * 2);
+        font-weight: 700;
+        color: var(--orange-pale);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .info-link:hover {
+        color: var(--orange);
+      }
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        justify-content: start;
+        gap: clamp(4px, 0.5vw, 8px);
+      }
+      .tech-icon {
+        width: calc(clamp(14px, 1.6vw, 22px)*1.7);
+        height: calc(clamp(14px, 1.6vw, 22px)*1.7);
+        background-color: var(--orange);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+      }
+
+      /* ── ABOUT PAGE ── */
+      .about-body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6%;
+        padding: 0 4%;
+      }
+      .about-circle {
+        width: clamp(192px, 31.2vw, 384px);
+        height: clamp(192px, 31.2vw, 384px);
+        border-radius: 50%;
+        background: var(--orange);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.85);
+        transition:
+          opacity 0.5s,
+          transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+      }
+      .about-circle.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .about-circle-text {
+        font-size: clamp(3rem, 6vw, 6rem);
+        font-weight: 900;
+        color: var(--white);
+        letter-spacing: -0.04em;
+      }
+      .about-bio {
+        width: clamp(192px, 31.2vw, 384px);
+        flex-shrink: 0;
+        opacity: 0;
+        transform: translateX(15px);
+        transition:
+          opacity 0.35s 0.15s,
+          transform 0.35s 0.15s;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9em;
+      }
+      .about-bio.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .about-bio p {
+        font-size: CALC(clamp(0.65rem, 1.15vw, 1rem)*1.5);
+        font-weight: 700;
+        color: var(--orange);
+        line-height: 1.7;
+      }
+      .about-contact {
+        display: inline-block;
+        font-size: calc(clamp(0.6rem, 1vw, 0.85rem) * 2);
+        font-weight: 700;
+        color: var(--orange-pale);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .about-contact:hover {
+        color: var(--orange);
+      }
+
+      /* ── GALLERY PAGE ── */
+      .gallery-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .gallery-binky {
+        width: clamp(120px, 20vw, 220px);
+        height: clamp(120px, 20vw, 220px);
+        background-color: var(--orange-pale);
+        mask-image: url('assets/art/binkyface.svg');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        -webkit-mask-image: url('assets/art/binkyface.svg');
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        cursor: pointer;
+      }
+      @keyframes binky-pop {
+        0%   { transform: scale(1); }
+        40%  { transform: scale(1.35); }
+        100% { transform: scale(1); }
+      }
+      .gallery-binky.popping {
+        animation: binky-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .gallery-soon {
+        font-size: clamp(3rem, 8vw, 8rem);
+        font-weight: 900;
+        color: var(--orange-pale);
+        letter-spacing: -0.04em;
+      }
     </style>
   </head>
   <body>
-
-    <header class="hdr">
-      <span class="hdr__name">hanish.</span>
-      <a class="hdr__resume" href="Hanish.pdf" target="_blank" rel="noopener noreferrer">resume</a>
-    </header>
-
-    <nav class="nav" aria-label="Primary">
-      <a href="projects.html">projects</a>
-      <a href="experience.html">experience</a>
-      <a href="gallery.html">gallery</a>
-      <a href="about.html">about me</a>
-    </nav>
-
-    <main class="hero">
-      <div class="hero-inner">
-
-        <!--
-          Single SVG: viewBox centered at 0,0.
-          Circle r=100. Text orbits at r=138.
-          Total viewBox span = 2*(138+18) = 312 → viewBox="-156 -156 312 312"
-        -->
-        <svg class="hero-svg" viewBox="-156 -156 312 312" aria-hidden="true">
-          <!-- Static orange circle -->
-          <circle cx="0" cy="0" r="100" fill="#e85d04" />
-
-          <!-- Spinning text ring -->
-          <g class="ring-group">
-            <defs>
-              <path id="orbit"
-                d="M 0,-138
-                   A 138,138 0 0,1  138,0
-                   A 138,138 0 0,1  0,138
-                   A 138,138 0 0,1 -138,0
-                   A 138,138 0 0,1  0,-138" />
-            </defs>
-            <text font-family="'Barlow',Arial,sans-serif"
-                  font-size="11.5"
-                  font-weight="700"
-                  fill="#e85d04"
-                  letter-spacing="2">
-              <textPath href="#orbit">
-                ✠❃✠ LISTENING: CITY POP CLASSICS ✠❃✠ PLAYING: ELDEN RING ✠❃✠ READING: THE ISLAND OF DR. MOREAU ✠❃✠&#x20;
-              </textPath>
-            </text>
-          </g>
-        </svg>
-
-        <div class="arrow" aria-hidden="true">&#x2192;</div>
-
+    <div class="frame">
+      <!-- ── HOME ── -->
+      <div id="home-page" style="display: contents">
+        <div class="header">
+          <a class="logo" href="#" onclick="goHome(event)">hanish.</a>
+          <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+        </div>
+        <nav class="nav">
+          <a href="#" onclick="showPage(event, 'projects')">projects</a>
+          <a href="#" onclick="showPage(event, 'exp')">experience</a>
+          <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
+          <a href="#" onclick="showPage(event, 'about')">about</a>
+        </nav>
+        <div class="hero">
+          <div id="hero-canvas-wrap" onclick="showPage(event, 'exp')">
+            <div id="ascii-hero"></div>
+            <div id="enter-label">enter</div>
+            <svg
+              class="orbit-svg-wrap"
+              viewBox="0 0 500 500"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <path
+                  id="orbit-path"
+                  d="M 250,250 m -210,0 a 210,210 0 1,1 420,0 a 210,210 0 1,1 -420,0"
+                />
+              </defs>
+              <g class="orbit-ring">
+                <text class="orbit-text">
+                  <textPath href="#orbit-path" startOffset="0%">
+                    <tspan font-size="50px" font-weight="900">currently</tspan>
+                    ✦ playing elden ring ✦ reading the island of dr moreau ✦
+                    listening to city pop ✦
+                    <tspan font-size="50px" font-weight="900">currently</tspan>
+                    ✦ playing elden ring ✦ reading the island of dr moreau ✦
+                    listening to city pop ✦
+                  </textPath>
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="footer" style="position: relative">
+          <span class="footer-date" id="home-date"></span>
+          <button class="sound-btn" onclick="toggleSound()">sound off</button>
+          <span class="footer-time" id="home-time"></span>
+          <a class="back-btn" href="#" onclick="showPage(event, 'exp')">
+            <span class="back-label">enter</span>
+            <svg
+              class="back-svg"
+              viewBox="6 6 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                width: clamp(33px, 4.5vw, 60px);
+                height: clamp(33px, 4.5vw, 60px);
+              "
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
-    </main>
 
-    <footer class="ftr">
-      <div class="ftr__date" id="ftr-date"></div>
-      <div class="ftr__time" id="ftr-time"></div>
-    </footer>
+      <!-- ── EXPERIENCE ── -->
+      <div id="exp-page" class="overlay-page">
+        <div class="header">
+          <a class="logo" href="#" onclick="goHome(event)">hanish.</a>
+          <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+        </div>
+        <nav class="nav">
+          <a href="#" onclick="showPage(event, 'projects')">projects</a>
+          <a href="#" onclick="showPage(event, 'exp')">experience</a>
+          <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
+          <a href="#" onclick="showPage(event, 'about')">about</a>
+        </nav>
+        <div class="section-body">
+          <div class="dot-col" id="exp-dots"></div>
+          <div class="main-wrap" id="exp-main">
+            <svg
+              class="arc-svg"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <path
+                  id="exp-arc-path"
+                  d="M 100,100 m -84,0 a 84,84 0 1,1 168,0"
+                />
+              </defs>
+              <text class="arc-text">
+                <textPath
+                  href="#exp-arc-path"
+                  startOffset="50%"
+                  text-anchor="middle"
+                  id="exp-arc-label"
+                >
+                  student researcher.
+                </textPath>
+              </text>
+            </svg>
+            <div class="main-circle"></div>
+          </div>
+          <div class="info-panel" id="exp-info">
+            <div class="info-label" id="exp-dates">jan 2025 — present</div>
+            <div class="info-title" id="exp-title">student researcher.</div>
+            <div class="info-desc" id="exp-desc">
+              conducting research on quantum algorithms for portfolio
+              optimization.
+            </div>
+          </div>
+        </div>
+        <div class="footer" style="position: relative">
+          <span class="footer-date sub-date"></span>
+          <button class="sound-btn" onclick="toggleSound()">sound off</button>
+          <span class="footer-time sub-time"></span>
+          <a class="back-btn" href="#" onclick="goHome(event)">
+            <span class="back-label">back</span>
+            <svg
+              class="back-svg"
+              viewBox="6 6 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                width: clamp(33px, 4.5vw, 60px);
+                height: clamp(33px, 4.5vw, 60px);
+              "
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
 
+      <!-- ── PROJECTS ── -->
+      <div id="projects-page" class="overlay-page">
+        <div class="header">
+          <a class="logo" href="#" onclick="goHome(event)">hanish.</a>
+          <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+        </div>
+        <nav class="nav">
+          <a href="#" onclick="showPage(event, 'projects')">projects</a>
+          <a href="#" onclick="showPage(event, 'exp')">experience</a>
+          <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
+          <a href="#" onclick="showPage(event, 'about')">about</a>
+        </nav>
+        <div class="section-body">
+          <div class="dot-col" id="proj-dots"></div>
+          <div class="main-wrap" id="proj-main">
+            <svg
+              class="arc-svg"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <path
+                  id="proj-arc-path"
+                  d="M 100,100 m -84,0 a 84,84 0 1,1 168,0"
+                />
+              </defs>
+              <text class="arc-text">
+                <textPath
+                  href="#proj-arc-path"
+                  startOffset="50%"
+                  text-anchor="middle"
+                  id="proj-arc-label"
+                >
+                  chipless.
+                </textPath>
+              </text>
+            </svg>
+            <div class="main-circle"></div>
+          </div>
+          <div class="info-panel" id="proj-info">
+            <div class="info-label" id="proj-year">2025</div>
+            <div class="info-title" id="proj-title">chipless.</div>
+            <div class="info-sub" id="proj-sub">
+              poker for when u don't have chips.
+            </div>
+            <div class="info-desc" id="proj-desc">
+              built chipless because me and my friends were in many situations
+              where we wanted to play poker with a physical deck but had no
+              chips. includes real-time updates, user authentication, side pot
+              tracking, and detailed player statistics.
+            </div>
+            <div class="tech-grid" id="proj-techs"></div>
+            <a
+              class="info-link"
+              id="proj-link"
+              href="https://github.com/mistahanish/chipless"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              view project
+              <svg
+                viewBox="6 6 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                  width: 0.9em;
+                  height: 0.9em;
+                  vertical-align: middle;
+                  stroke: currentColor;
+                  transform: scaleY(-1);
+                "
+              >
+                <path
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer" style="position: relative">
+          <span class="footer-date sub-date"></span>
+          <button class="sound-btn" onclick="toggleSound()">sound off</button>
+          <span class="footer-time sub-time"></span>
+          <a class="back-btn" href="#" onclick="goHome(event)">
+            <span class="back-label">back</span>
+            <svg
+              class="back-svg"
+              viewBox="6 6 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                width: clamp(33px, 4.5vw, 60px);
+                height: clamp(33px, 4.5vw, 60px);
+              "
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── ABOUT ── -->
+      <div id="about-page" class="overlay-page">
+        <div class="header">
+          <a class="logo" href="#" onclick="goHome(event)">hanish.</a>
+          <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+        </div>
+        <nav class="nav">
+          <a href="#" onclick="showPage(event, 'projects')">projects</a>
+          <a href="#" onclick="showPage(event, 'exp')">experience</a>
+          <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
+          <a href="#" onclick="showPage(event, 'about')">about</a>
+        </nav>
+        <div class="about-body">
+          <div class="about-circle" id="about-circle">
+            <span class="about-circle-text">hi.</span>
+          </div>
+          <div class="about-bio" id="about-bio">
+            <p>
+              hi. i'm hanish. i'm a software engineer with a passion for
+              building clean, thoughtful interfaces. i enjoy working across the
+              stack — from frontend design systems to backend services.
+            </p>
+            <p>
+              on top of all this, i love exploring ai, systems programming, and
+              creative side projects. currently a student at the university of
+              maryland.
+            </p>
+            <a class="about-contact" href="mailto:me@hanishv.com" target="_blank" rel="noopener noreferrer"
+              >me@hanishv.com
+              <svg
+                viewBox="6 6 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                  width: 0.9em;
+                  height: 0.9em;
+                  vertical-align: middle;
+                  stroke: currentColor;
+                  transform: scaleY(-1);
+                "
+              >
+                <path
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg></a
+            >
+          </div>
+        </div>
+        <div class="footer" style="position: relative">
+          <span class="footer-date sub-date"></span>
+          <button class="sound-btn" onclick="toggleSound()">sound off</button>
+          <span class="footer-time sub-time"></span>
+          <a class="back-btn" href="#" onclick="goHome(event)">
+            <span class="back-label">back</span>
+            <svg
+              class="back-svg"
+              viewBox="6 6 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                width: clamp(33px, 4.5vw, 60px);
+                height: clamp(33px, 4.5vw, 60px);
+              "
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ── GALLERY ── -->
+      <div id="gallery-page" class="overlay-page">
+        <div class="header">
+          <a class="logo" href="#" onclick="goHome(event)">misha.</a>
+          <a class="resume-link" href="Hanish.pdf" target="_blank">resume</a>
+        </div>
+        <nav class="nav">
+          <a href="#" onclick="showPage(event, 'projects')">projects</a>
+          <a href="#" onclick="showPage(event, 'exp')">experience</a>
+          <a href="#" onclick="showPage(event, 'gallery')">gallery</a>
+          <a href="#" onclick="showPage(event, 'about')">about</a>
+        </nav>
+        <div class="gallery-body">
+          <div class="gallery-binky" onclick="this.classList.remove('popping'); void this.offsetWidth; this.classList.add('popping')"></div>
+          <span class="gallery-soon">coming soon.</span>
+        </div>
+        <div class="footer" style="position: relative">
+          <span class="footer-date sub-date"></span>
+          <button class="sound-btn" onclick="toggleSound()">sound off</button>
+          <span class="footer-time sub-time"></span>
+          <a class="back-btn" href="#" onclick="goHome(event)">
+            <span class="back-label">back</span>
+            <svg
+              class="back-svg"
+              viewBox="6 6 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="
+                width: clamp(33px, 4.5vw, 60px);
+                height: clamp(33px, 4.5vw, 60px);
+              "
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="exp.js"></script>
+    <script src="projects.js"></script>
     <script>
-      function pad(n) { return String(n).padStart(2, '0'); }
-      function tick() {
-        const now = new Date();
-        document.getElementById('ftr-date').textContent =
-          pad(now.getMonth() + 1) + '/' + pad(now.getDate()) + '/' + now.getFullYear();
-        const h = now.getHours() % 12 || 12;
-        document.getElementById('ftr-time').textContent = h + ':' + pad(now.getMinutes());
+      // ── Data ──
+      // ── Build dots helper ──
+      function buildDots(container, count, onSelect) {
+        container.innerHTML = "";
+        const DOT_SIZE = Math.max(28, Math.round(96 / Math.sqrt(count)));
+        const mid = (count - 1) / 2;
+        for (let i = 0; i < count; i++) {
+          const d = document.createElement("div");
+          d.className = "item-dot";
+          d.style.width = DOT_SIZE + "px";
+          d.style.height = DOT_SIZE + "px";
+          const offset = mid === 0 ? 0 : Math.abs(i - mid) / mid;
+          const xShift = offset * DOT_SIZE * 0.85;
+          d.style.marginLeft = `-${DOT_SIZE * 1.8}px`;
+          d.style.transform = `translateX(${xShift}px) scale(0)`;
+          d.dataset.base = `translateX(${xShift}px)`;
+          d.dataset.idx = i;
+          d.addEventListener("click", () => onSelect(i));
+          d.addEventListener("mouseenter", () => onSelect(i));
+          container.appendChild(d);
+        }
+        return container.querySelectorAll(".item-dot");
       }
-      tick();
-      setInterval(tick, 1000);
-    </script>
 
+      function animateDots(dots, onDone) {
+        dots.forEach((d, i) => {
+          const base = d.dataset.base || "";
+          d.style.transition = "none";
+          d.style.opacity = "0";
+          d.style.transform = base + " scale(0)";
+          setTimeout(() => {
+            d.style.transition = `opacity 0.45s, transform 0.45s cubic-bezier(0.34,1.56,0.64,1)`;
+            d.style.transitionDelay = `${i * 80}ms`;
+            d.style.opacity = "1";
+            d.style.transform = base + " scale(1)";
+          }, 20);
+        });
+        setTimeout(onDone, dots.length * 80 + 200);
+      }
+
+      function resetDots(dots) {
+        dots.forEach((d) => {
+          d.classList.remove("active");
+          const base = d.dataset.base || "";
+          d.style.transition = "none";
+          d.style.opacity = "0";
+          d.style.transform = base + " scale(0)";
+        });
+      }
+
+      // ── Experience page ──
+      let expDots = null;
+
+      function initExpPage() {
+        expDots = buildDots(
+          document.getElementById("exp-dots"),
+          EXP.length,
+          selectExp,
+        );
+        document.getElementById("exp-main").classList.remove("visible");
+        document.getElementById("exp-info").classList.remove("visible");
+        setTimeout(() => {
+          animateDots(expDots, () => {
+            selectExp(0);
+            expDots[0] && expDots[0].classList.add("active");
+          });
+        }, 80);
+      }
+
+      function selectExp(idx) {
+        const e = EXP[idx];
+        expDots &&
+          expDots.forEach((d, i) => d.classList.toggle("active", i === idx));
+        const wrap = document.getElementById("exp-main");
+        const info = document.getElementById("exp-info");
+        wrap.classList.remove("visible");
+        info.classList.remove("visible");
+        setTimeout(() => {
+          document.getElementById("exp-arc-label").textContent = e.role;
+          document.getElementById("exp-title").textContent = e.title;
+          document.getElementById("exp-dates").textContent = e.dates;
+          document.getElementById("exp-desc").textContent = e.desc;
+          wrap.classList.add("visible");
+          info.classList.add("visible");
+        }, 180);
+      }
+
+      function resetExpPage() {
+        document.getElementById("exp-main").classList.remove("visible");
+        document.getElementById("exp-info").classList.remove("visible");
+        if (expDots) resetDots(expDots);
+      }
+
+      // ── Projects page ──
+      let projDots = null;
+
+      function initProjectsPage() {
+        projDots = buildDots(
+          document.getElementById("proj-dots"),
+          PROJECTS.length,
+          selectProj,
+        );
+        document.getElementById("proj-main").classList.remove("visible");
+        document.getElementById("proj-info").classList.remove("visible");
+        setTimeout(() => {
+          animateDots(projDots, () => {
+            selectProj(0);
+            projDots[0] && projDots[0].classList.add("active");
+          });
+        }, 80);
+      }
+
+      function selectProj(idx) {
+        const p = PROJECTS[idx];
+        projDots &&
+          projDots.forEach((d, i) => d.classList.toggle("active", i === idx));
+        const wrap = document.getElementById("proj-main");
+        const info = document.getElementById("proj-info");
+        wrap.classList.remove("visible");
+        info.classList.remove("visible");
+        setTimeout(() => {
+          document.getElementById("proj-arc-label").textContent = p.name;
+          document.getElementById("proj-year").textContent = p.year;
+          document.getElementById("proj-title").textContent = p.name;
+          document.getElementById("proj-sub").textContent = p.sub;
+          document.getElementById("proj-desc").textContent = p.desc;
+          document.getElementById("proj-techs").innerHTML = p.techs
+            .map(t => `<div class="tech-icon" style="mask-image:url('assets/${t}.svg');-webkit-mask-image:url('assets/${t}.svg')"></div>`)
+            .join("");
+          const link = document.getElementById("proj-link");
+          if (p.link) {
+            link.href = p.link;
+            link.style.display = "inline-block";
+          } else {
+            link.style.display = "none";
+          }
+          wrap.classList.add("visible");
+          info.classList.add("visible");
+        }, 180);
+      }
+
+      function resetProjectsPage() {
+        document.getElementById("proj-main").classList.remove("visible");
+        document.getElementById("proj-info").classList.remove("visible");
+        if (projDots) resetDots(projDots);
+      }
+
+      // ── About page ──
+      function initAboutPage() {
+        setTimeout(() => {
+          document.getElementById("about-circle").classList.add("visible");
+          document.getElementById("about-bio").classList.add("visible");
+        }, 80);
+      }
+
+      function resetAboutPage() {
+        document.getElementById("about-circle").classList.remove("visible");
+        document.getElementById("about-bio").classList.remove("visible");
+      }
+
+      // ── Themes ──
+      const THEMES = {
+        default: { "--orange": "#FF6200" },
+        exp: { "--orange": "#0177C1" },
+        projects: { "--orange": "#E51837" },
+        gallery: { "--orange": "#8E258C" },
+        about: { "--orange": "#FF6200" },
+      };
+      const cursorStyleEl = document.createElement('style');
+      document.head.appendChild(cursorStyleEl);
+
+      const POINTER_ELEMENTS = 'a, button, [onclick], label, select, input[type="submit"], input[type="button"], .item-dot, #hero-canvas-wrap, #ascii-hero, .hero-arrow, .back-btn, .sound-btn, .nav a, .resume-link';
+
+      const CUR_SVG     = (c) => `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M8.68602 16.288L8.10556 9.37387C7.96399 7.68752 9.85032 6.59846 11.24 7.56424L16.9375 11.524C18.6256 12.6972 17.6579 15.348 15.611 15.1577L14.8273 15.0849C13.9821 15.0063 13.1795 15.4697 12.825 16.2409L12.4962 16.9561C11.6376 18.8238 8.858 18.3365 8.68602 16.288Z" fill="white" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      const POINTER_SVG = (c) => `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 1024 1024" fill="none"><path d="M511.552 128c-35.584 0-64.384 28.8-64.384 64.448v516.48L274.048 570.88a94.272 94.272 0 0 0-112.896-3.456 44.416 44.416 0 0 0-8.96 62.208L332.8 870.4A64 64 0 0 0 384 896h512V575.232a64 64 0 0 0-45.632-61.312l-205.952-61.76A96 96 0 0 1 576 360.192V192.448C576 156.8 547.2 128 511.552 128zM359.04 556.8l24.128 19.2V192.448a128.448 128.448 0 1 1 256.832 0v167.744a32 32 0 0 0 22.784 30.656l206.016 61.76A128 128 0 0 1 960 575.232V896a64 64 0 0 1-64 64H384a128 128 0 0 1-102.4-51.2L101.056 668.032A108.416 108.416 0 0 1 128 512.512a158.272 158.272 0 0 1 185.984 8.32L359.04 556.8z" fill="white" stroke="${c}" stroke-width="30" stroke-linejoin="round"/></svg>`;
+      const CLICK_SVG   = (c) => `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M10.4465 17.1839L8.09636 10.6556C7.52315 9.06338 9.06333 7.5232 10.6556 8.09641L17.1839 10.4466C19.118 11.1429 18.8694 13.9539 16.843 14.2998L16.0671 14.4323C15.2305 14.5752 14.5751 15.2305 14.4323 16.0672L14.2998 16.8431C13.9538 18.8694 11.1428 19.1181 10.4465 17.1839Z" fill="white" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4V3" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 10H3" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 4L6 6" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+      const prefixEach = (prefix, list) =>
+        list.split(',').map(s => `${prefix} ${s.trim()}`).join(', ');
+
+      function updateCursors(color) {
+        const cur   = `url("data:image/svg+xml,${encodeURIComponent(CUR_SVG(color))}")`;
+        const click = `url("data:image/svg+xml,${encodeURIComponent(CLICK_SVG(color))}")`;
+        cursorStyleEl.textContent = `
+          * { cursor: ${cur}, auto !important; }
+          ${POINTER_ELEMENTS} { cursor: ${cur}, pointer !important; }
+          body.clicking * { cursor: ${click}, auto !important; }
+          ${prefixEach('body.clicking', POINTER_ELEMENTS)} { cursor: ${click}, pointer !important; }`;
+      }
+
+      document.addEventListener('mousedown', () => document.body.classList.add('clicking'));
+      document.addEventListener('mouseup',   () => document.body.classList.remove('clicking'));
+
+      function setTheme(name) {
+        const t = THEMES[name] || THEMES.default;
+        const r = document.documentElement;
+        Object.entries(t).forEach(([k, v]) => r.style.setProperty(k, v));
+        updateCursors(t['--orange'] || '#FF6200');
+      }
+
+      updateCursors('#FF6200');
+
+      // ── Navigation ──
+      function showPage(e, name) {
+        e.preventDefault();
+        document
+          .querySelectorAll(".overlay-page")
+          .forEach((p) => p.classList.remove("visible"));
+        resetExpPage();
+        resetProjectsPage();
+        resetAboutPage();
+        setTheme(name);
+        document.getElementById(name + "-page").classList.add("visible");
+        if (name === "exp") initExpPage();
+        if (name === "projects") initProjectsPage();
+        if (name === "about") initAboutPage();
+        updateSubClock();
+      }
+
+      function goHome(e) {
+        e.preventDefault();
+        document
+          .querySelectorAll(".overlay-page")
+          .forEach((p) => p.classList.remove("visible"));
+        resetExpPage();
+        resetProjectsPage();
+        resetAboutPage();
+      }
+
+      // ── Sound toggle ──
+      let soundOn = false;
+      const clickAudio = new Audio('assets/sounds/mixkit-quick-win-video-game-notification-269.wav');
+      clickAudio.volume = 0.5;
+      function playClick() {
+        if (!soundOn) return;
+        clickAudio.currentTime = 0;
+        clickAudio.play().catch(() => {});
+      }
+      function toggleSound() {
+        soundOn = !soundOn;
+        const label = soundOn ? "sound on" : "sound off";
+        document
+          .querySelectorAll(".sound-btn")
+          .forEach((b) => (b.textContent = label));
+        playClick();
+      }
+      document.querySelector('.frame').addEventListener('click', e => {
+        if (e.target.closest('a, button, .item-dot')) playClick();
+      });
+
+      // ── Clock ──
+      function pad(n) {
+        return String(n).padStart(2, "0");
+      }
+      function updateClock() {
+        const now = new Date();
+        const m = pad(now.getMonth() + 1),
+          d = pad(now.getDate()),
+          y = now.getFullYear();
+        document.getElementById("home-date").textContent = `${m}/${d}/${y}`;
+        let h = now.getHours();
+        const min = pad(now.getMinutes());
+        h = h % 12 || 12;
+        document.getElementById("home-time").textContent = `${h}:${min}`;
+      }
+      function updateSubClock() {
+        const now = new Date();
+        const m = pad(now.getMonth() + 1),
+          d = pad(now.getDate()),
+          y = now.getFullYear();
+        const dateStr = `${m}/${d}/${y}`;
+        let h = now.getHours();
+        const min = pad(now.getMinutes());
+        h = h % 12 || 12;
+        const timeStr = `${h}:${min}`;
+        document
+          .querySelectorAll(".sub-date")
+          .forEach((el) => (el.textContent = dateStr));
+        document
+          .querySelectorAll(".sub-time")
+          .forEach((el) => (el.textContent = timeStr));
+      }
+      updateClock();
+      setInterval(() => {
+        updateClock();
+        updateSubClock();
+      }, 1000);
+    </script>
   </body>
 </html>
