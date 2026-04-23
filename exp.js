@@ -1,6 +1,6 @@
 const EXP = [
   {
-    role: "undergraduate student.",
+    role: "undergrad student.",
     title: "@UMD",
     dates: "august 2022 — present",
     desc: "information science major, data science minor. somewhere between a cs degree and an identity crisis. graduating may 2026.",
