@@ -1,9 +1,9 @@
 const EXP = [
   {
-    role: "student researcher.",
-    title: "@DoQuantum",
-    dates: "january 2025 — present",
-    desc: "conducting research on quantum algorithms for portfolio optimization. implementing and testing quantum-inspired optimization techniques using qiskit and python to evaluate their effectiveness in financial modeling compared to classical methods. aiming to publish findings in a peer-reviewed journal.",
+    role: "undergraduate student.",
+    title: "@UMD",
+    dates: "august 2022 — present",
+    desc: "information science major, data science minor. somewhere between a cs degree and an identity crisis. graduating may 2026.",
     techs: ["language-python"],
   },
   {
@@ -26,5 +26,12 @@ const EXP = [
     dates: "february 2025 — march 2025",
     desc: "participated in a 7-week microsoft tsi initiative to build an ai-powered chatbot improving website usability for the nature conservancy. focused on prompt design and persona experimentation to refine conversational tone and responsiveness. built with azure services for scalable backend integration and blazor (c#) for the frontend.",
     techs: ["language-csharp"],
+  },
+  {
+    role: "swe intern.",
+    title: "@SomyTech",
+    dates: "june 2024 — august 2024",
+    desc: "built a secure document storage backend in python with fastapi, postgresql, and jwt auth. wired up aws (s3, sqs, ec2) for storage, messaging, and hosting. set up ci/cd pipelines via github actions and tested everything with postman.",
+    techs: ["language-python", "language-aws", "language-postgresql"],
   },
 ];
