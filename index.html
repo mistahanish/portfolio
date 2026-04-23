@@ -700,117 +700,151 @@
             }
 
             /* ── ABOUT PAGE ── */
+            /* ── ABOUT PAGE ── */
             .about-body {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
+                align-self: center;
                 justify-content: center;
                 zoom: 0.8;
-                padding: 0 4%;
+                padding: 0 6%;
+                gap: 5%;
             }
-            .about-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                gap: clamp(6px, 0.9cqw, 14px);
-                width: clamp(400px, 72cqw, 720px);
-                height: clamp(280px, 48cqw, 500px);
-            }
-            .about-tile {
-                border-radius: clamp(10px, 1.4cqw, 18px);
-                padding: clamp(18px, 2.8cqw, 38px);
+            .about-face-wrap {
+                flex-shrink: 0;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                gap: 0.7em;
                 opacity: 0;
-                transform: scale(0.88);
-                transition:
-                    opacity 0.38s,
-                    transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1);
+                transition: opacity 0.5s ease 0.45s;
             }
-            .about-tile.visible {
+            .about-face-wrap.visible {
                 opacity: 1;
-                transform: scale(1);
             }
-            /* counter-clockwise from top-right */
-            #about-tile-tr {
-                transition-delay: 0s;
-            }
-            #about-tile-tl {
-                transition-delay: 0.11s;
-            }
-            #about-tile-bl {
-                transition-delay: 0.22s;
-                justify-content: flex-end;
-            }
-            #about-tile-br {
-                transition-delay: 0.33s;
-            }
-            .about-tile--full {
-                background: var(--orange);
-            }
-            .about-tile--pale {
-                background: var(--orange-pale);
-            }
-            /* binky hover reveal */
-            .about-tile--binky {
-                position: relative;
-                overflow: hidden;
-                cursor: pointer;
-                transition:
-                    opacity 0.38s,
-                    transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1),
-                    background 0.25s,
-                    box-shadow 0.25s;
-            }
-            .about-tile--binky:hover {
-                background: #ffffff;
-                box-shadow: inset 0 0 0 clamp(3px, 0.45cqw, 6px) var(--orange);
-            }
-            .about-binky-reveal {
-                position: absolute;
-                inset: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                pointer-events: none;
+            .about-face-wrap img {
+                width: clamp(320px, 60cqw, 620px);
+                display: block;
+                opacity: 0.78;
                 transition: opacity 0.25s;
             }
-            .about-tile--binky:hover .about-binky-reveal {
+            .about-face-wrap img:hover {
                 opacity: 1;
             }
-            .about-binky-icon {
-                width: 55%;
-                aspect-ratio: 1;
-                background-color: var(--orange);
-                mask-image: url("assets/art/binkyface.svg");
-                mask-size: contain;
-                mask-repeat: no-repeat;
-                mask-position: center;
-                -webkit-mask-image: url("assets/art/binkyface.svg");
-                -webkit-mask-size: contain;
-                -webkit-mask-repeat: no-repeat;
-                -webkit-mask-position: center;
-            }
-            .about-tile-text {
-                font-size: calc(clamp(0.6rem, 1.05cqw, 0.9rem) * 1.5);
-                font-weight: 700;
-                color: white;
-                line-height: 1.65;
+            .about-contact-card {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.4em 1.2em;
+                padding-top: clamp(8px, 1.2cqw, 16px);
             }
             .about-contact {
                 display: inline-block;
-                font-size: calc(clamp(0.6rem, 1cqw, 0.85rem) * 2.5);
+                font-size: clamp(0.975rem, 1.69cqw, 1.43rem);
                 font-weight: 700;
-                color: rgba(255, 255, 255, 0.6);
+                color: var(--orange-pale);
                 text-decoration: none;
                 letter-spacing: 0.04em;
                 transition: color 0.2s;
             }
             .about-contact:hover {
-                color: #ffffff;
+                color: var(--orange);
                 opacity: 1;
+            }
+            .about-content {
+                flex: 0 0 auto;
+                width: clamp(200px, 30cqw, 340px);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: clamp(10px, 1.8cqw, 24px);
+                opacity: 0;
+                transform: translateY(10px);
+                transition:
+                    opacity 0.4s ease 0.1s,
+                    transform 0.4s ease 0.1s;
+            }
+            .about-content.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .about-intro {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                overflow: visible;
+            }
+            .about-greeting {
+                font-size: calc(clamp(0.55rem, 0.95cqw, 0.85rem) * 2);
+                font-weight: 700;
+                color: var(--orange);
+                line-height: 1.4;
+            }
+            .about-name {
+                font-size: clamp(2.2rem, 5.5cqw, 4.2rem);
+                font-weight: 900;
+                color: var(--orange);
+                letter-spacing: -0.02em;
+                line-height: 1;
+                padding-top: 0.4em;
+            }
+            .about-name span {
+                display: inline-block;
+                animation: about-letter-bounce 4.5s ease-in-out infinite;
+                animation-play-state: paused;
+            }
+            .about-name.bouncing span:nth-child(1) {
+                animation-play-state: running;
+                animation-delay: 0s;
+            }
+            .about-name.bouncing span:nth-child(2) {
+                animation-play-state: running;
+                animation-delay: 0.18s;
+            }
+            .about-name.bouncing span:nth-child(3) {
+                animation-play-state: running;
+                animation-delay: 0.36s;
+            }
+            .about-name.bouncing span:nth-child(4) {
+                animation-play-state: running;
+                animation-delay: 0.54s;
+            }
+            .about-name.bouncing span:nth-child(5) {
+                animation-play-state: running;
+                animation-delay: 0.72s;
+            }
+            .about-name.bouncing span:nth-child(6) {
+                animation-play-state: running;
+                animation-delay: 0.9s;
+            }
+            .about-name.bouncing span:nth-child(7) {
+                animation-play-state: running;
+                animation-delay: 1.08s;
+            }
+            @keyframes about-letter-bounce {
+                0%,
+                40%,
+                100% {
+                    transform: translateY(0);
+                }
+                20% {
+                    transform: translateY(-0.3em);
+                }
+            }
+            .about-main-text {
+                font-size: calc(clamp(0.55rem, 0.95cqw, 0.85rem) * 2);
+                font-weight: 700;
+                color: var(--orange);
+                line-height: 1.55;
+            }
+            .about-sub-text {
+                font-size: calc(clamp(0.55rem, 0.95cqw, 0.85rem) * 2);
+                font-weight: 700;
+                color: var(--orange);
+                opacity: 0.65;
+                line-height: 1.55;
+            }
+            .about-mobile {
+                display: none;
             }
 
             /* ── GALLERY PAGE ── */
@@ -1036,18 +1070,21 @@
                 }
 
                 /* About/gallery/archive bodies */
-                .about-body,
                 .gallery-body,
                 .arch-body {
                     zoom: 1;
                     overflow-y: auto;
                 }
-                .about-grid {
-                    width: 100%;
-                    height: auto;
+                .about-body {
+                    display: none;
                 }
-                .about-tile {
-                    min-height: 160px;
+                .about-mobile {
+                    display: flex;
+                    flex-direction: column;
+                    overflow-y: auto;
+                    -webkit-overflow-scrolling: touch;
+                    padding: 0 5%;
+                    width: 100%;
                 }
             }
         </style>
@@ -1362,47 +1399,56 @@
                     <div class="hero-ticker-content" aria-hidden="true"></div>
                 </div>
                 <div class="about-body">
-                    <div class="about-grid">
-                        <!-- top-left: pale, binkyface reveal -->
+                    <div class="about-face-wrap">
+                        <img src="assets/art/meface2.svg" alt="" />
                         <div
-                            class="about-tile about-tile--pale about-tile--binky"
-                            id="about-tile-tl"
-                        >
-                            <div class="about-binky-reveal">
-                                <div class="about-binky-icon"></div>
-                            </div>
-                        </div>
-                        <!-- top-right: full orange, coder bio -->
-                        <div
-                            class="about-tile about-tile--full"
-                            id="about-tile-tr"
-                        >
-                            <p class="about-tile-text">
-                                hello, i'm hanish. i'm a software engineer with
-                                a passion for building clean, thoughtful
-                                interfaces. i enjoy working across the full
-                                stack — from frontend design systems to backend
-                                services.
-                            </p>
-                        </div>
-                        <!-- bottom-left: full orange, contact (populated from contact.js) -->
-                        <div
-                            class="about-tile about-tile--full"
-                            id="about-tile-bl"
+                            class="about-contact-card"
+                            id="about-contact-desktop"
                         ></div>
-                        <!-- bottom-right: pale, misha bio -->
-                        <div
-                            class="about-tile about-tile--pale"
-                            id="about-tile-br"
-                        >
-                            <p class="about-tile-text">
-                                misha is my pen name as well as my russian name.
-                                as an artist i love exploring digital mediums,
-                                creative coding, and anything that sits at the
-                                edge of art and technology.
+                    </div>
+                    <div class="about-content">
+                        <div class="about-intro">
+                            <p class="about-greeting">hello there, i'm</p>
+                            <p class="about-name">
+                                <span>h</span><span>a</span><span>n</span
+                                ><span>i</span><span>s</span><span>h</span
+                                ><span>.</span>
                             </p>
                         </div>
+                        <p class="about-main-text">
+                            currently a student at the university of maryland. i
+                            love to create quality software and art.
+                        </p>
+                        <p class="about-sub-text">
+                            misha is my pen name and russian name. my background
+                            is in ai and full stack development, but i'm into 3d
+                            and 2d design and want to work in graphics
+                            programming.
+                        </p>
                     </div>
+                </div>
+                <!-- mobile only -->
+                <div class="about-mobile">
+                    <div class="mob-sep"></div>
+                    <div class="mob-item">
+                        <div class="mob-item__title">hanish.</div>
+                        <p class="mob-item__desc">
+                            currently a student at the university of maryland. i
+                            love to create quality software and art.
+                        </p>
+                    </div>
+                    <div class="mob-sep"></div>
+                    <div class="mob-item">
+                        <div class="mob-item__title">misha.</div>
+                        <p class="mob-item__desc">
+                            my pen name and russian name. background in ai and
+                            full stack, into 3d and 2d design, want to work in
+                            graphics programming.
+                        </p>
+                    </div>
+                    <div class="mob-sep"></div>
+                    <div class="mob-item" id="about-contact-mobile"></div>
+                    <div class="mob-sep"></div>
                 </div>
                 <div class="footer" style="position: relative">
                     <span class="footer-date sub-date"></span>
@@ -1813,22 +1859,42 @@
             const ARROW_SVG = `<svg viewBox="6 6 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:0.9em;height:0.9em;vertical-align:middle;stroke:currentColor;transform:scaleY(-1)"><path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
             function initAboutPage() {
-                document.getElementById("about-tile-bl").innerHTML =
+                const contactLinks = CONTACT.map(
+                    (c) =>
+                        `<a class="about-contact" href="${c.href}" target="_blank" rel="noopener noreferrer">${c.label} ${ARROW_SVG}</a>`,
+                ).join("");
+                document.getElementById("about-contact-desktop").innerHTML =
+                    contactLinks;
+                document.getElementById("about-contact-mobile").innerHTML =
                     CONTACT.map(
                         (c) =>
-                            `<a class="about-contact" href="${c.href}" target="_blank" rel="noopener noreferrer">${c.label} ${ARROW_SVG}</a>`,
+                            `<a class="mob-item__link" href="${c.href}" target="_blank" rel="noopener noreferrer">${c.label} ${ARROW_SVG}</a>`,
                     ).join("");
                 setTimeout(() => {
                     document
-                        .querySelectorAll(".about-tile")
-                        .forEach((t) => t.classList.add("visible"));
+                        .querySelector(".about-content")
+                        .classList.add("visible");
+                    document
+                        .querySelector(".about-face-wrap")
+                        .classList.add("visible");
                 }, 80);
+                setTimeout(() => {
+                    document
+                        .querySelector(".about-name")
+                        .classList.add("bouncing");
+                }, 1500);
             }
 
             function resetAboutPage() {
                 document
-                    .querySelectorAll(".about-tile")
-                    .forEach((t) => t.classList.remove("visible"));
+                    .querySelector(".about-content")
+                    .classList.remove("visible");
+                document
+                    .querySelector(".about-face-wrap")
+                    .classList.remove("visible");
+                document
+                    .querySelector(".about-name")
+                    .classList.remove("bouncing");
             }
 
             // ── Themes ──
@@ -2101,21 +2167,25 @@
 
             function buildTicker() {
                 const shuffled = [...HERO].sort(() => Math.random() - 0.5);
-                const itemSpans = shuffled.map((item, i) => {
-                    let content;
-                    if (typeof item === "object" && item.href) {
-                        const pre = item.prefix || "";
-                        content = `${pre}<a href="${item.href}" target="_blank">${item.label}</a>`;
-                    } else {
-                        content =
-                            typeof item === "string"
-                                ? item
-                                : (item.prefix || "") + item.label;
-                    }
-                    return `${i > 0 ? "<span>✦</span>" : ""}<span>${content}</span>`;
-                }).join("");
+                const itemSpans = shuffled
+                    .map((item, i) => {
+                        let content;
+                        if (typeof item === "object" && item.href) {
+                            const pre = item.prefix || "";
+                            content = `${pre}<a href="${item.href}" target="_blank">${item.label}</a>`;
+                        } else {
+                            content =
+                                typeof item === "string"
+                                    ? item
+                                    : (item.prefix || "") + item.label;
+                        }
+                        return `${i > 0 ? "<span>✦</span>" : ""}<span>${content}</span>`;
+                    })
+                    .join("");
                 const html = `${itemSpans}<span>✦</span>`;
-                document.querySelectorAll(".hero-ticker-content").forEach(el => el.innerHTML = html);
+                document
+                    .querySelectorAll(".hero-ticker-content")
+                    .forEach((el) => (el.innerHTML = html));
             }
             buildTicker();
         </script>
