@@ -141,11 +141,17 @@
                 color: var(--orange);
             }
             @media (prefers-reduced-motion: reduce) {
-                .hero-ticker-content { animation-play-state: paused; }
+                .hero-ticker-content {
+                    animation-play-state: paused;
+                }
             }
             @keyframes ticker-scroll {
-                from { transform: translateX(0); }
-                to { transform: translateX(calc(-100% - var(--gap))); }
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(calc(-100% - var(--gap)));
+                }
             }
 
             /* ── FOOTER ── */
@@ -981,7 +987,7 @@
                 padding: 1rem 0 0.5rem;
             }
             .about-mob-img {
-                width: 58%;
+                width: 72.5%;
                 flex-shrink: 0;
                 display: block;
             }
@@ -1001,7 +1007,9 @@
                 letter-spacing: 0.04em;
                 transition: color 0.2s;
             }
-            .about-mob-contact-link:hover { color: var(--orange); }
+            .about-mob-contact-link:hover {
+                color: var(--orange);
+            }
             .about-mob-card {
                 background: transparent;
                 display: flex;
@@ -1022,14 +1030,22 @@
                 letter-spacing: -0.02em;
                 line-height: 1.1;
             }
-            .about-mob-desc1, .about-mob-desc2 {
+            .about-mob-desc1,
+            .about-mob-desc2 {
                 font-size: clamp(0.75rem, 3.5vw, 0.95rem);
                 line-height: 1.6;
                 font-weight: 400;
             }
-            .about-mob-desc1 { color: var(--orange); }
-            .about-mob-desc2 { color: var(--orange); opacity: 0.65; }
-            .about-mob-desc2 strong { font-weight: 500; }
+            .about-mob-desc1 {
+                color: var(--orange);
+            }
+            .about-mob-desc2 {
+                color: var(--orange);
+                opacity: 0.65;
+            }
+            .about-mob-desc2 strong {
+                font-weight: 500;
+            }
 
             /* ── GALLERY PAGE ── */
             .gallery-body {
@@ -1267,9 +1283,10 @@
                     flex-direction: column;
                     overflow-y: auto;
                     -webkit-overflow-scrolling: touch;
-                    padding: 0 5%;
+                    padding: 4% 5%;
                     width: 100%;
                     gap: 0.75rem;
+                    justify-content: center;
                 }
             }
         </style>
@@ -1401,7 +1418,21 @@
                             </text>
                         </svg>
                         <div class="main-circle">
-                            <img id="exp-icon" src="" alt="" style="width:60%;height:60%;object-fit:contain;display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" />
+                            <img
+                                id="exp-icon"
+                                src=""
+                                alt=""
+                                style="
+                                    width: 60%;
+                                    height: 60%;
+                                    object-fit: contain;
+                                    display: none;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                "
+                            />
                         </div>
                     </div>
                     <div class="mobile-list" id="exp-mobile-list"></div>
@@ -1498,7 +1529,11 @@
                         <div class="main-circle">
                             <div class="cd-ring"></div>
                             <div class="cd-inner">
-                                <img id="cd-img" src="assets/art/totorocd1.svg" alt="" />
+                                <img
+                                    id="cd-img"
+                                    src="assets/art/totorocd1.svg"
+                                    alt=""
+                                />
                             </div>
                             <div class="cd-hole"></div>
                         </div>
@@ -1636,15 +1671,36 @@
                 <!-- mobile only -->
                 <div class="about-mobile">
                     <div class="about-mob-top">
-                        <img class="about-mob-img" src="assets/art/meface2.svg" alt="" />
-                        <div class="about-mob-contacts" id="about-contact-mobile"></div>
+                        <img
+                            class="about-mob-img"
+                            src="assets/art/meface2.svg"
+                            alt=""
+                        />
+                        <div
+                            class="about-mob-contacts"
+                            id="about-contact-mobile"
+                        ></div>
                     </div>
                     <div class="about-mob-card">
                         <p class="about-mob-greeting">hello there, i'm</p>
-                        <p class="about-mob-name"><span>h</span><span>a</span><span>n</span><span>i</span><span>s</span><span>h</span><span>.</span></p>
-                        <p class="about-mob-desc1">currently a student at the university of maryland. i love to create quality software and art.</p>
-                        <p class="about-mob-desc2"><strong>misha</strong> is my pen name and russian name. my background is in ai and full stack development, but i'm into 3d and 2d design and want to work in graphics programming.</p>
-                        <p class="about-mob-greeting">feel free to contact me!</p>
+                        <p class="about-mob-name">
+                            <span>h</span><span>a</span><span>n</span
+                            ><span>i</span><span>s</span><span>h</span
+                            ><span>.</span>
+                        </p>
+                        <p class="about-mob-desc1">
+                            currently a student at the university of maryland. i
+                            love to create quality software and art.
+                        </p>
+                        <p class="about-mob-desc2">
+                            <strong>misha</strong> is my pen name and russian
+                            name. my background is in ai and full stack
+                            development, but i'm into 3d and 2d design and want
+                            to work in graphics programming.
+                        </p>
+                        <p class="about-mob-greeting">
+                            feel free to contact me!
+                        </p>
                     </div>
                 </div>
                 <div class="footer" style="position: relative">
@@ -2090,8 +2146,12 @@
                         .classList.add("visible");
                 }, 80);
                 setTimeout(() => {
-                    document.querySelector(".about-name").classList.add("bouncing");
-                    document.querySelector(".about-mob-name").classList.add("bouncing");
+                    document
+                        .querySelector(".about-name")
+                        .classList.add("bouncing");
+                    document
+                        .querySelector(".about-mob-name")
+                        .classList.add("bouncing");
                 }, 1500);
             }
 
@@ -2102,8 +2162,12 @@
                 document
                     .querySelector(".about-face-wrap")
                     .classList.remove("visible");
-                document.querySelector(".about-name").classList.remove("bouncing");
-                document.querySelector(".about-mob-name").classList.remove("bouncing");
+                document
+                    .querySelector(".about-name")
+                    .classList.remove("bouncing");
+                document
+                    .querySelector(".about-mob-name")
+                    .classList.remove("bouncing");
             }
 
             // ── Themes ──
@@ -2251,8 +2315,16 @@
             }
 
             // ── Navigation ──
-            const HASH_TO_PAGE = { experience: "exp", projects: "projects", gallery: "gallery", about: "about", archive: "archive" };
-            const PAGE_TO_HASH = Object.fromEntries(Object.entries(HASH_TO_PAGE).map(([h, p]) => [p, h]));
+            const HASH_TO_PAGE = {
+                experience: "exp",
+                projects: "projects",
+                gallery: "gallery",
+                about: "about",
+                archive: "archive",
+            };
+            const PAGE_TO_HASH = Object.fromEntries(
+                Object.entries(HASH_TO_PAGE).map(([h, p]) => [p, h]),
+            );
 
             function navigateTo(name) {
                 document
@@ -2406,7 +2478,10 @@
                             const pre = item.prefix || "";
                             content = `${pre}<a href="${item.href}" target="_blank" rel="noopener noreferrer">${item.label}</a>`;
                         } else {
-                            content = typeof item === "string" ? item : (item.prefix || "") + item.label;
+                            content =
+                                typeof item === "string"
+                                    ? item
+                                    : (item.prefix || "") + item.label;
                         }
                         return `${i > 0 ? "<span>✦</span>" : ""}<span>${content}</span>`;
                     })
@@ -2417,6 +2492,22 @@
                     .forEach((el) => (el.innerHTML = html));
             }
             buildTicker();
+
+            function resetTickerAnimations() {
+                document
+                    .querySelectorAll(".hero-ticker-content")
+                    .forEach((el) => {
+                        el.style.animation = "none";
+                        void el.offsetWidth;
+                        el.style.animation = "";
+                    });
+            }
+
+            let tickerResizeTimer;
+            window.addEventListener("resize", () => {
+                clearTimeout(tickerResizeTimer);
+                tickerResizeTimer = setTimeout(resetTickerAnimations, 150);
+            });
         </script>
     </body>
 </html>
