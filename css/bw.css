@@ -39,14 +39,14 @@ a:hover { opacity: 0.8; }
 
 .bw-header__name {
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 500;
   color: #111;
   letter-spacing: -0.02em;
 }
 
 .bw-header__label {
   font-size: 2.2rem;
-  font-weight: 300;
+  font-weight: 200;
   color: #c8c8c8;
   letter-spacing: -0.02em;
 }
@@ -122,7 +122,7 @@ a:hover { opacity: 0.8; }
 .bw-content h2 {
   color: #c85a00;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -162,7 +162,7 @@ a:hover { opacity: 0.8; }
 
 .bw-card__title {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #111;
   grid-column: 1;
   grid-row: 1;
@@ -178,7 +178,7 @@ a:hover { opacity: 0.8; }
 .bw-card__meta {
   font-size: 0.85rem;
   color: #c85a00;
-  font-weight: 700;
+  font-weight: 400;
   grid-column: 2;
   grid-row: 1;
   text-align: right;
@@ -217,7 +217,7 @@ a:hover { opacity: 0.8; }
   padding: 0.35rem 1rem;
   font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #333;
   display: inline-flex;
   align-items: center;
@@ -234,7 +234,7 @@ a:hover { opacity: 0.8; }
 }
 
 .bw-contact strong {
-  font-weight: 900;
+  font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.02em;
 }
@@ -247,7 +247,7 @@ a:hover { opacity: 0.8; }
 
 .bw-simple h2 {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 500;
   color: #111;
   margin-bottom: 0.75rem;
 }
@@ -259,5 +259,5 @@ a:hover { opacity: 0.8; }
 
 .bw-simple a {
   color: #c85a00;
-  font-weight: 700;
+  font-weight: 400;
 }
