@@ -1400,7 +1400,9 @@
                                 </textPath>
                             </text>
                         </svg>
-                        <div class="main-circle"></div>
+                        <div class="main-circle">
+                            <img id="exp-icon" src="" alt="" style="width:60%;height:60%;object-fit:contain;display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);" />
+                        </div>
                     </div>
                     <div class="mobile-list" id="exp-mobile-list"></div>
                     <div class="info-panel" id="exp-info">
@@ -1942,6 +1944,13 @@
                 setTimeout(() => {
                     document.getElementById("exp-arc-label").textContent =
                         e.role;
+                    const expIcon = document.getElementById("exp-icon");
+                    if (e.icon) {
+                        expIcon.src = `assets/exp_icons/${e.icon}.svg`;
+                        expIcon.style.display = "block";
+                    } else {
+                        expIcon.style.display = "none";
+                    }
                     document.getElementById("exp-title").textContent = e.title;
                     document.getElementById("exp-dates").textContent = e.dates;
                     document.getElementById("exp-desc").textContent = e.desc;
